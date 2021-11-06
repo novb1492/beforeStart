@@ -243,7 +243,7 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 				<tr>
 					<th scope="col">
 						<label>
-							<input name="checkbox" type="checkbox" class="checkbox">
+							<input name="checkbox" type="checkbox" onclick="checkAll()" class="checkbox">
 							<span class="lbl"><span class="blind">모두선택</span></span>
 						</label>
 					</th>
