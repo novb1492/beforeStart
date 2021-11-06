@@ -6,8 +6,8 @@
 <%@ include file="common/header.jsp" %>
 <% 
 List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("maps");
-
 %>
+
 <html>
 <head>
 	<title>Home</title>
