@@ -1,8 +1,12 @@
 package com.kim.demo2;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +35,24 @@ public class HomeController {
 		return "home";
 	}
 	@RequestMapping(value = "/buket", method = RequestMethod.GET)
-	public String goBuket(HttpServletRequest request,HttpServletResponse response) {
+	public String goBuket(HttpServletRequest request,HttpServletResponse response,Model model) {
+		logger.info("goBuket");
+		Map<String, Object>map=new HashMap<String, Object>();
+		map.put("name", "불고기 피자");
+		map.put("count", 1);
+		map.put("price", 20000);
+		map.put("size", "L");
+		map.put("edge", "오리진");
+		Map<String, Object>map2=new HashMap<String, Object>();
+		map2.put("name", "치즈 피자");
+		map2.put("count", 2);
+		map2.put("price", 40000);
+		map2.put("size", "R");
+		map2.put("edge", "치즈");
+		List<Map<String, Object>>maps=new ArrayList<Map<String,Object>>();
+		maps.add(map);
+		maps.add(map2);
+		model.addAttribute("maps",maps);
 		return "buket";
 	}
 	@RequestMapping(value = "/pay", method = RequestMethod.GET)

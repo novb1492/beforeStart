@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- 
+<%
+ int buyCount=2;
+%>
 
 <section class="quick_wrap">
 	<ul class="quick_menu">
@@ -23,8 +25,8 @@
 		<!-- <li><a href="/login_join/login" class="quick_tit"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png" alt="로그인" /></i>로그인</a></li> -->
 		<li><a href="/login_join/join" class="quick_tit"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_02.png" alt="회원가입"></i>회원가입</a></li>
 		<li class="inBox">
-			<a href="#" onclick="javascript:cartOpen();" class="quick_tit quick_cart" title="장바구니">
-				<i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_03.png" alt="장바구니"></i>장바구니<em class="cart_num">1</em>
+			<a href="/demo2/buket" onclick="javascript:cartOpen();" class="quick_tit quick_cart" title="장바구니">
+				<i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_03.png" alt="장바구니"></i>장바구니<em class="cart_num"><%=buyCount %></em>
 			</a>
 			<section class="quick_box p0">
 				<ul class="q_rdoList">

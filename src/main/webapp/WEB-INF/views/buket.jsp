@@ -1,7 +1,13 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="common/header.jsp" %>
+<% 
+List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("maps");
+
+%>
 <html>
 <head>
 	<title>Home</title>
@@ -9,61 +15,7 @@
 <body style="">
 <!-- WIDERPLANET  SCRIPT START 2017.7.13 -->
 <div id="wp_tg_cts" style="display:none;"><script id="wp_tag_script_1636101767469" src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1go6pcf-1mgh2k6-3-1&amp;ty=Cart&amp;ti=20768&amp;hcuid=e8fbc609ce282e7a4c04e8c7446c56b07414abba&amp;device=web&amp;charset=UTF-8&amp;tc=1636101767469&amp;ref=https%3A%2F%2Fwww.mrpizza.co.kr%2Forder%2FdeliveryOrder&amp;loc=https%3A%2F%2Fwww.mrpizza.co.kr%2Forder%2FmyCart"></script><script id="wp_log_script_1636101767971" src="https://pixel.mathtag.com/sync/js?exsync=https%3A%2F%2Fastg.widerplanet.com%2Fdelivery%2Fwpp.php%3Fmmuuid%3D%5BMM_UUID%5D"></script></div>
-<script type="text/javascript">
-var wptg_tagscript_vars = wptg_tagscript_vars || [];
-wptg_tagscript_vars.push(
-(function() {
-		
-	return {
-		wp_hcuid:"N20211104220401622" == "" ? "" : "N20211104220401622",
-				/*Cross device targeting을 원하는 광고주는 로그인한 사용자의 Unique ID (ex. 로그인 ID, 고객넘버 등)를 암호화하여 대입.
-				 *주의: 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
-		ti:"20768",
-		ty:"Cart",
-		device:"web",
-		items: {
-			i : "0107021010 || ",
-			t : "멕시칸 하바네로 피자 세트 || "
-	}
-	};
-}));
-</script>
-<script type="text/javascript" async="" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
-<!-- // WIDERPLANET  SCRIPT END 2017.7.13 -->
-<!-- 다음 DDN 추적코드 -->
-<script type="text/javascript" charset="UTF8" src="//t1.daumcdn.net/adfit/static/kp.js"></script><script type="text/javascript">kakaoPixel('7829926935338663372').pageView();kakaoPixel('7829926935338663372').viewCart();</script>
 
-<script type="text/javascript" src="//static.tagmanager.toast.com/tag/view/1637"></script>
-<script type="text/javascript">
-var array = new Array();
-
-	
-
-	array.push({
-			id: "0107021010",
-			price:"27900",
-			quantity:"1",
-			category:"",
-			imgUrl:"",
-			name:"멕시칸 하바네로 피자 세트",
-			desc:"",
-			link:""
-		})
-
-
-//console.log(array);
-window.ne_tgm_q = window.ne_tgm_q || [];
-window.ne_tgm_q.push(
-{
-	tagType: 'cart',
-	device:'web',/*web, mobile, tablet*/
-	uniqValue:'',
-	pageEncoding:'utf-8',
-	items : array
-});
- </script>
-
- 
 	<!-- skipNavi -->
 	<div id="skipNavi">
 		<a href="#contents">본문 바로가기</a>
@@ -81,66 +33,15 @@ window.ne_tgm_q.push(
 
 
 
-<script src="/js/mrpizza/common/rsamode.js"></script>
-
-<script>
-	var RSAModulus = "a71f8350dc67f20823e6c6e57b10e2ac08015ed7a0176ac4b8ab3e02030f89c7fa17206c2abb216d79c975838b6f026d0f2553b6eb88f9171bae4f3825446f833ae86f92014b1770feabb8622b8314a0000ad60a13db56f74447759e507f71cd260f49435fbd1ec1744998536b678497832f219c0c37a5386077b590fbe5615b";
-	var RSAExponent = "10001";
-</script>
-<form id="encModeForm" hidden="true">
-</form>
 
 
 
 	<!-- 무료제공 프로모션 팝업 -->
 	
 
-<script type="text/javascript">
-	function PromotionTypeChk(type){ //type 노출되는 항목갯수
 
-		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
-		console.log("eventchk400 = "+eventchk400);
-		if(typeof eventchk400 === "undefined"){
-			alert("피자만 구매하기 또는 증정품 중 한가지를 선택해 주세요.");
-			return;			
-		}else if(eventchk400 == "other"){
-			//일반 진행
-			chkSelectionPromotion('other');
-			return;
-		}else if(eventchk400 == "PM0470_Large_1"){
-			setCartDataFreeMenu('sideproductItem_400_Large_1', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]오븐미트스파게티+베이크윙 8조각은 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Large").hide();
-			$(".bgLayer").hide();				
-		}
-		else if(eventchk400 == "PM0470_Regular_2"){
-			setCartDataFreeMenu('sideproductItem_400_Regular_2', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 미피떡볶이, 홈샐러드(9구) 중 한가지만 선택하여 주문 가능합니다.\n미피떡볶이는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Regular").hide();
-			$(".bgLayer").hide();	
-		}
-		else if(eventchk400 == "PM0470_Regular_3"){
-			setCartDataFreeMenu('sideproductItem_400_Regular_3', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 미피떡볶이, 홈샐러드(9구) 중 한가지만 선택하여 주문 가능합니다.\n홈샐러드(9구)는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Regular").hide();
-			$(".bgLayer").hide();	
-		}
-	}	
-	
-</script>	
 
-<style>
-.pop_newPromotion1906 .select_item label {width:233px}
-.pop_newPromotion210219.promotion_L .select_item label.item0 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_1_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item0 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_1_on.jpg') no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item2 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_2_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item2 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_2_on.jpg') no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item3 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210413_item_3_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item3 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210413_item_3_on.jpg') no-repeat;}
-</style>
+
 
 <!-- 프리미엄 9종 L 주문시 -->
 <article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion210219 promotion_L hide" id="pop_order_event_Large">
@@ -228,34 +129,7 @@ window.ne_tgm_q.push(
 	<!-- 무료제공 프로모션 팝업_두번째 -->
 	
 
-<script type="text/javascript">
-	function PetPromotionTypeChk(type){ //type 노출되는 항목갯수
-
-		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
-		
-		if(eventchk400 === "undefined"){
-			alert("항목을 선택해주세요.");
-			return;			
-		}else if(eventchk400 == "other"){
-			//일반 진행
-			chkSelectionPromotion('other');
-			return;
-		}else if(eventchk400 == "PM0460_Large_1"){
-			setCartDataFreeMenu('petsideproductItem_400_Large_1', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 펫치블스, 펫페퍼로니 중 한가지만 선택하여 주문 가능합니다.\n펫치블스는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_pet_Large").hide();
-			$(".bgLayer").hide();				
-		}else if(eventchk400 == "PM0460_Large_2"){
-			setCartDataFreeMenu('petsideproductItem_400_Large_2', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 펫치블스, 펫페퍼로니 중 한가지만 선택하여 주문 가능합니다.\n펫페퍼로니는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_pet_Large").hide();
-			$(".bgLayer").hide();				
-		}
-	}	
 	
-</script>	
 
 <!-- 핫앤뉴 7종 L 주문시 -->
 <article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion1909 promotion_L hide" id="pop_order_event_pet_Large">
@@ -344,42 +218,14 @@ window.ne_tgm_q.push(
 
 
 
-<script type="text/javascript">
-	$(function(){
-		// th 체크박스 기능
-		$('table th input:checkbox').on('click' , function(){
-			var that = this;
-			$(this).closest('table').find('#cart_spin > td:first-child input:checkbox').each(function(){
-				this.checked = that.checked;
-			});
-				
-		});
-		
-		spinnerStyle();
-		productCtrl();
-	});
-</script>
+
 
 <div id="myCartList">
 
 
 
 
-<script type="text/javascript">
-	$(function(){
-		// th 체크박스 기능
-		$('table th input:checkbox').on('click' , function(){
-			var that = this;
-			$(this).closest('table').find('#cart_spin > td:first-child input:checkbox').each(function(){
-				this.checked = that.checked;
-			});
-				
-		});
-		
-		spinnerStyle();
-		productCtrl();
-	});
-</script>
+
 
 <div id="myCartList">
 	<section class="l_order">
@@ -406,34 +252,13 @@ window.ne_tgm_q.push(
 					<th scope="col">가격</th>
 				</tr>
 			</thead>
-			<tbody>
-				<!--
-				<tr>
-					<td>
-						<label>
-							<input name="checkbox" type="checkbox" class="checkbox" />
-							<span class="lbl"><span class="blind">선택</span></span>
-						</label>
-					</td>
-					<td>
-						<a class="img" href="#"><img src="//cdn.mrpizza.co.kr/2014_resources/images/@img.jpg" alt="임시이미지" /></a>
-					</td>
-					<td class="t_left">
-						<p><strong class="f16">맘마미아</strong></p>
-						<p>사이즈 : R (레귤러)</p>
-						<p>엣지 : 에그타르트</p>
-						<p class="mt5"><span class="icon_txt">E 쿠폰</span></p>
-					</td>
-					<td><input class="spinner" type="text" value="1" title="수량입력" /></td>
-					<td><p class="t_price"><strong>25,900</strong>원</p></td>
-				</tr>
-				 -->
-				
-					
-					
-						
-						
-							<tr id="cart_spin">						
+			
+
+						<%
+							for(Map<String,Object>map:maps){
+							%>	
+								<tbody>
+								<tr id="cart_spin">						
 							<td rowspan="2">
 								<label>
 									<input type="checkbox" id="cart_item" name="cart_item" class="checkbox" value="0107021010|||1">
@@ -444,20 +269,11 @@ window.ne_tgm_q.push(
 								<a class="img" href="javascript:void(0);"><img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2021630152735817.jpg" alt="임시이미지"></a>
 							</td>
 							<td class="t_left">
-								<p><strong class="f16">멕시칸 하바네로 피자 세트</strong></p>
+								<p><strong class="f16"><%=map.get("name") %></strong></p>
 								
-									<p>사이즈 : L(라지)</p>
-								
-								
-								
-									
-									
-										
-									
-								
-								
-								
-									<p>엣지 : 오리진</p>
+									<p>사이즈 :<%=map.get("size") %></p>
+
+									<p>엣지 :<%=map.get("edge") %></p>
 								
 								
 							</td>
@@ -472,39 +288,27 @@ window.ne_tgm_q.push(
 								<input type="hidden" id="eCoupon_product" name="eCoupon_product" value="N">		
 									
 								
-								<span class="ui-spinner ui-widget ui-widget-content ui-corner-all" style="height: 35px;"><input class="cartSpinner ui-spinner-input" type="text" value="1" title="수량입력" style="width:46px;text-align:center;" readonly="" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only cartPlus" tabindex="-1" role="button" aria-disabled="false"><i class="icon icon-plus"></i></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only cartMinus" tabindex="-1" role="button" aria-disabled="false"><i class="icon icon-minus"></i></a></span>
+								<span class="ui-spinner ui-widget ui-widget-content ui-corner-all" style="height: 35px;">
+									<input class="cartSpinner ui-spinner-input" type="text" value="<%=map.get("count") %>" title="수량입력" style="width:46px;text-align:center;" readonly="" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1" autocomplete="off" role="spinbutton">
+										<a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only cartPlus" tabindex="-1" role="button" aria-disabled="false"><i class="icon icon-plus"></i></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only cartMinus" tabindex="-1" role="button" aria-disabled="false">
+										<i class="icon icon-minus"></i>
+										</a>
+								</span>
 							</td>
-							<td><p class="t_price"><strong>27,900</strong>원</p></td>
+							<td><p class="t_price"><strong><%=map.get("price") %></strong>원</p></td>
 						</tr>
+							</tbody>
+					<% 	}
+						%>
+						
 						
 					
 							
-						
-							<tr class="tr_add">
-
-								
-								<td colspan="3">
-									<div class="add_topping">
-										<table>
-											<caption>주문내역</caption>
-											<colgroup>
-												<col>
-												<col style="width:55px">
-												<col style="width:85px">
-												<col style="width:55px">
-												<col style="width:30px">
-											</colgroup>
-											<tbody>
-											
-											</tbody>
-										</table>
-									</div>
-								</td>
-							</tr>
+					
 						
 					
 				
-			</tbody>
+		
 		</table>
 		<p class="mt10">
 			<a href="javascript:allCheckBox();" class="button h30 w115 white">제품전체선택</a>
@@ -630,7 +434,6 @@ window.ne_tgm_q.push(
 
 <script type="text/javascript">
 	function PromotionTypeChk(type){ //type 노출되는 항목갯수
-
 		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
 		console.log("eventchk400 = "+eventchk400);
 		if(typeof eventchk400 === "undefined"){
@@ -892,7 +695,6 @@ window.ne_tgm_q.push(
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();
-
   </script>
 
 		<!-- /pop layer -->
@@ -1220,8 +1022,6 @@ window.ne_tgm_q.push(
         }
     }
 })();
-
-
 </script>
 <!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 --> 
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"> </script> 
@@ -1306,27 +1106,16 @@ fbqSearchKeyword();
 <!-- Taboola Pixel Code -->
 
 <script type="text/javascript">
-
   window._tfa = window._tfa || [];
-
   window._tfa.push({notify: 'event', name: 'page_view', id: 1177527});
-
   !function (t, f, a, x) {
-
          if (!document.getElementById(x)) {
-
             t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
-
          }
-
   }(document.createElement('script'),
-
   document.getElementsByTagName('script')[0],
-
   '//cdn.taboola.com/libtrc/unip/1177527/tfa.js',
-
   'tb_tfa_script');
-
 </script>
 
 <noscript>
@@ -1345,7 +1134,6 @@ fbqSearchKeyword();
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-763537271');
 </script>
 
@@ -1396,3 +1184,16 @@ adn_panel_param.push([{
 
 
 </html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
