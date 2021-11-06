@@ -38,6 +38,10 @@ public class HomeController {
 	public String goPay(HttpServletRequest request,HttpServletResponse response) {
 		return "pay";
 	}
+	@RequestMapping(value = "/address", method = RequestMethod.GET)
+	public String goAddress(HttpServletRequest request,HttpServletResponse response) {
+		return "address";
+	}
 	
 	
 }

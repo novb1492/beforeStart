@@ -285,20 +285,7 @@
 								<p class="txt">인터넷으로 예약하고 <br>매장에서 찾아가세요.</p>							
 							</a>
 						</li>
-						<li class="bg_p">
-							<a href="javascript:setOrderTypeSelection(3, 'move');" class="order_type_btn">
-								<p class="tit">선물하기</p>
-								<p class="sub">Present</p>
-								<p class="txt">미스터피자를 소중한 분에게 <br>선물하세요.</p>
-							</a>
-						</li>
-						<li class="bg_e">
-							<a href="/order/eCouponOrder" class="order_type_btn">
-								<p class="tit">E쿠폰주문</p>
-								<p class="sub">E coupon</p>
-								<p class="txt">스마일콘 / 기프티콘 / <br>기프티쇼 / 스마트콘 /<br> 아이넘버로 주문하세요</p>
-							</a>
-						</li>
+						
 					</ul>
 				</div>
 

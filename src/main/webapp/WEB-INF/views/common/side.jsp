@@ -67,7 +67,6 @@
 			</section>
 		</li>
 		<li class="inBox">
-			<a href="#" onclick="javascript:reOrderOpen();" class="quick_tit quick_order" title="재주문"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_04.png" alt="재주문"></i>재주문</a>
 			<section class="quick_box">
 				<h1 class="tit1">
 					

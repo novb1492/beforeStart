@@ -81,10 +81,8 @@
 			
 				 
 					
-					<a href="/order/myCart" class="btn_cart"><strong class="top_cart_num">1</strong><span class="blind">장바구니</span></a>		
 				
 			
-			<button type="button" class="btn_gnb"><i></i><span class="blind">gnb열기</span></button>
 		</div>
 	</div>
 </header>

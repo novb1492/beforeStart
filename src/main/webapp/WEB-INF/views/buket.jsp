@@ -481,9 +481,7 @@ window.ne_tgm_q.push(
 							
 						
 							<tr class="tr_add">
-								<td>
-									<a href="javascript:void(0);" onclick="javascript:openToppingPopup('01','07','02','1010','1', 'MP01');" class="button red pop_open">토핑추가하기</a>
-								</td>
+
 								
 								<td colspan="3">
 									<div class="add_topping">
@@ -579,11 +577,7 @@ window.ne_tgm_q.push(
 			</ul>
 			<ul class="dc_pay">
 				<li>주문금액 <strong>27,900원</strong></li>
-				<li>통신사할인 <strong>-0원</strong></li>
-				<li>신용카드할인 <strong>-0원</strong></li>
-				<li>프로모션할인 <strong>-0원</strong></li>
 				<li>쿠폰할인 <strong>-0원</strong></li>
-				<li><span class="t_org">E쿠폰제품</span> <strong>-0원</strong></li>
 				<!--<li class="t_org">온라인제품권 <strong>원</strong></li>-->
 			</ul>
 			<div class="price">
