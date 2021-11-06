@@ -38,12 +38,14 @@ public class HomeController {
 	public String goBuket(HttpServletRequest request,HttpServletResponse response,Model model) {
 		logger.info("goBuket");
 		Map<String, Object>map=new HashMap<String, Object>();
+		map.put("num", 1);
 		map.put("name", "불고기 피자");
 		map.put("count", 1);
 		map.put("price", 20000);
 		map.put("size", "L");
 		map.put("edge", "오리진");
 		Map<String, Object>map2=new HashMap<String, Object>();
+		map.put("num", 2);
 		map2.put("name", "치즈 피자");
 		map2.put("count", 2);
 		map2.put("price", 40000);

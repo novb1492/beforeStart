@@ -261,7 +261,7 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 								<tr id="cart_spin">						
 							<td rowspan="2">
 								<label>
-									<input type="checkbox" id="cart_item" name="cart_item" class="checkbox" value="0107021010|||1">
+									<input type="checkbox" id="cart_item" name="cart_item" class="checkbox" value="<%=map.get("num")%>">
 									<span class="lbl"><span class="blind">선택</span></span>
 								</label>
 							</td>
@@ -300,18 +300,10 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 							</tbody>
 					<% 	}
 						%>
-						
-						
-					
-							
-					
-						
-					
-				
-		
+
 		</table>
 		<p class="mt10">
-			<a href="javascript:allCheckBox();" class="button h30 w115 white">제품전체선택</a>
+			<a href="#" onclick="checkAll()" class="button h30 w115 white">제품전체선택</a>
 			<a href="/menu/premium" class="button h30 w115 white">계속 주문하기</a>
 			<a href="#popup" class="button h30 w115 delProduct_pop_open">선택제품삭제 <span class="ic_x"></span></a>
 		</p>
@@ -327,7 +319,6 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 		</ul>
 
 		<input type="hidden" id="notSaleProductCount" name="notSaleProductCount" value="0">
-		
 	</section>
 	<section class="r_order">
 		<div class="pay_box" style="top: 30px;">
@@ -1181,19 +1172,5 @@ adn_panel_param.push([{
 
 
 <div id="adn_panel_wrap" class="closing_bg" style="display: none;"></div><iframe src="https://pixel.mathtag.com/sync/iframe?mt_uuid=ea4d6182-abee-4000-b4bc-63aa3a6dff8b&amp;no_iframe=1&amp;exsync=https%3A%2F%2Fastg.widerplanet.com%2Fdelivery%2Fwpp.php%3Fmmuuid%3D%5BMM_UUID%5D&amp;source=mathtag" id="mm_sync_back_ground" title="MediaMath Advertising" style="visibility: hidden; display: none;"></iframe></body>
-
-
+</body>
 </html>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete

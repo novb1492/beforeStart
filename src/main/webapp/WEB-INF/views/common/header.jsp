@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/csslib.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/jslib.js" />"></script>
 </head>
 <body>
 <header class="header">

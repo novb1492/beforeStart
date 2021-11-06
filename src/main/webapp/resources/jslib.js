@@ -1,0 +1,3 @@
+function checkAll(){
+	alert('ss');
+}
