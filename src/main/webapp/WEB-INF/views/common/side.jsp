@@ -1,13 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ 
+
 <section class="quick_wrap">
 	<ul class="quick_menu">
 		
 			 
+			<c:choose>
+		         <c:when test = "${email!=null}">
+		           		<li><a href="/login_join/logout" class="quick_tit "><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png" alt="로그아웃"></i>로그아웃</a></li>
+		         </c:when>
+		         <c:otherwise>
+						<li><a href="/login_join/logout" class="quick_tit "><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png" alt="로그아웃"></i>로그인</a></li>
+		         </c:otherwise>
+     		 </c:choose>
 			
-			
-			
-				<li><a href="/login_join/logout" class="quick_tit "><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png" alt="로그아웃"></i>로그아웃</a></li>
 			
 			
 			

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="common/header.jsp" %>
 <html>
 <head>
 	<title>Home</title>
 </head>
 <body onload="setInitialization();" style="">
+<%@ include file="common/header.jsp" %>
+
 	<!-- skipNavi -->
 	<div id="skipNavi">
 		<a href="#contents">본문 바로가기</a> <a href="#gnb">주메뉴 바로가기</a> <a href="#footer">사이트정보 바로가기</a>
@@ -392,15 +393,11 @@
 										<tr>
 											<th scope="row"><i class="t_red normal">*</i> <label for="OrderType">주문시간</label></th>
 											<td class="t_left"><label> <input name="OrderType" id="OrderType" type="radio" class="radio" value="N" onclick="javajscript:chkOrderType(this.value);" checked=""> <span class="lbl">바로주문</span>
-											</label>  <label> <input name="OrderType" id="OrderType2" type="radio" class="radio" value="R" onclick="javajscript:chkOrderType(this.value);"> <span class="lbl">예약주문</span>
-											</label>  <select name="ReserveTime" id="ReserveTime" class="sel4 ml10" style="width: 130px;" title="배달시간 선택">
-													<option value="">예약주문</option>
-													<!--<option value="">오후 2시 20분</option>-->
-											</select> <!-- 
+											</label>  <!-- 
 										<select class="sel4" title="배달시간 분 선택">
 											<option value="">분</option>
 										</select>
-										 --> <span class="t_red ml6">* 최소 40분 이후부터 예약이 가능합니다.</span></td>
+										 --> </td>
 										</tr>
 										<!-- /배달주문 주문시간 -->
 									
@@ -467,7 +464,7 @@
 														<th scope="col" class="t_center">매장명</th>
 														<th scope="col" class="t_center">주소</th>
 														<th scope="col" class="t_center">전화번호</th>
-														<th scope="col" class="t_center">매장보기</th>
+
 													</tr>
 												</thead>
 												<tbody>
@@ -475,7 +472,6 @@
 														<td>압구정점</td>
 														<td class="t_left">서울특별시 강남구 신사동 574-7 2층</td>
 														<td>02-512-1161</td>
-														<td><a href="/store/store_search?branch_id=108910" target="_blank" class="button h25 w60 white" title="배달매장 정보 새창열림">보기</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -509,20 +505,10 @@
 								
 							</h2>
 							<p class="pt5">
-								[안내사항]<br>
-								<!-- - 스마티피자(크런치포테이토/크림쉬림프),-->
-								특가세트(보너스파우치/홈런박스/투런박스) 및 피자샌드류는 <strong class="t_red">특가피자(세트)이므로 추가 주문 포함 타 할인/적립/쿠폰/세트/패밀리외식통합이용권과 중복적용 제외</strong> 됩니다.<br>
 								
-								- <strong>행복드림 이벤트는 특가세트와 중복주문이 불가하며 추가 주문 포함 프로모션/쿠폰/방문포장 할인과 중복적용 제외</strong>됩니다.<br>
-								<!--- <strong>삼성카드 포장 1+1 이벤트는 다른 제품과 중복주문이 불가하며, 삼성카드로만 결제가 가능합니다.(중복할인 불가)</strong>-->
-
 							</p>
 							<ul class="tabmenu2 mt10 tabMotion">
-								<li class="on"><a href="#tabCon1" id="mobileTab"><span>통신&amp;제휴할인</span></a></li>
-								<li class="w110"><a href="#tabCon2" id="cardTab"><span>신용카드혜택</span></a></li>
-								<li class="w110"><a href="#tabCon3" id="promotionTab"><span>프로모션</span></a></li>
-								<li class="w100"><a href="#tabCon4" id="couponTab"><span>쿠폰</span></a></li>
-								<li class="w170"><a href="#tabCon5" id="familyTab"><span>패밀리외식통합이용권</span></a></li>
+								<li class="w100"><span>쿠폰입력</span></li>
 								
 							</ul>
 							
@@ -632,8 +618,7 @@
 							
 								
 								
-									<div id="tabCon1" class="discount_none tab_cont" style="display: block;">통신&amp;제휴할인
-										받을 제품이 없습니다.</div>
+						<input type="text" placeholder="쿠폰번호를 입력해주세요">
 								
 							
 
@@ -643,48 +628,7 @@
 							
 								
 								
-									<div id="tabCon2" class="discount_none tab_cont" style="display: none;">카드할인 받을
-										제품이 없습니다.</div>
-								
-							
-							<!-- /카드할인 -->
-
-							<!-- 프로모션 -->
-							
-								
-								
-								
-									<div id="tabCon3" class="discount_none tab_cont" style="display: none;">프로모션할인
-										받을 제품이 없습니다.</div>
-								
-							
-							<!-- /프로모션 -->
-
-							<!-- 쿠폰 -->
-							
-								
-								
-									<div id="tabCon4" class="discount_none tab_cont" style="display: none;">쿠폰할인 받을
-										제품이 없습니다.</div>
-								
-							
-							<!-- /쿠폰 -->
-							<!-- 패밀리외식통합이용권 -->
-							
-								
-								
-									<div id="tabCon5" class="discount_none tab_cont" style="display: none;">패밀리 외식
-										통합이용권을 교환할 제품이 없습니다.</div>
-								
-							
-							<!-- / 패밀리외식통합이용권 -->
-							
-							<!-- 웰페어 -->
-							
-								
-								
-									<div id="tabCon6" class="discount_none tab_cont" style="display: none;">웰페어 프로모션을 교환할 제품이 없습니다.</div>
-								
+									
 							
 							<!-- 웰페어 -->
 							
@@ -701,18 +645,7 @@
 								</colgroup>
 								<tbody>
 									
-										<tr>
-											<th scope="row"><label for="payGroup">현금결제</label></th>
-											<td class="t_left"><label> <input name="payGroup" id="payGroup" value="1" type="radio" class="radio">
-													<span class="lbl">현금</span>
-											</label> <span class="ml10">(</span> <label> <input name="Use_Cash" id="Use_Cash" onclick="javascript:UseCash_tel();" type="checkbox" class="checkbox"> <!--<input name="Use_Cash" id="Use_Cash" onclick="javascript:UseCash_tel();" type="radio" class="radio" />-->
-													<span class="lbl">현금영수증</span>
-											</label> <label> <input name="Use_5man" id="Use_5man" onclick="javascript:Use5man();" type="checkbox" class="checkbox"> <!--<input name="Use_5man" id="Use_5man" onclick="javascript:Use_5man();" type="radio" class="radio" />-->
-													<span class="lbl">5만원권</span>
-											</label> <label> <input name="Use_10man" id="Use_10man" onclick="javascript:Use10man();" type="checkbox" class="checkbox"> <!--<input name="Use_10man" id="Use_10man" onclick="javascript:Use_10man();" type="radio" class="radio" />-->
-													<span class="lbl">10만원권(수표)</span>
-											</label> <span>)</span></td>
-										</tr>
+										
 
 										<!-- 퍼블리셔 임시스크립트: 옴겨주세요 -->
 										<script type="text/javascript">
@@ -761,21 +694,12 @@
 									<tr>
 										<th scope="row"><label for="payGroup">인터넷 결제</label></th>
 										<td class="t_left"><label> <input name="payGroup" id="payGroup" value="2" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl">신용카드</span>
-										</label> <label class="ml30"> <input name="payGroup" id="payGroup2" value="3" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl">휴대폰
-													결제</span>
+										</label> <label class="ml30"> <input name="payGroup" id="payGroup2" value="3" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl">가상계좌</span>
 										</label> <label class="ml30"> <input name="payGroup" id="payGroup3" value="5" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl"><img src="https://cdn.mrpizza.co.kr/2014_resources/images/order/img_kakaopay_new.png" alt="카카오페이"></span>
 										</label>
 										
 												
-											<label class="mt10" style="margin-left:0;">
-												<input name="payGroup" id="payGroup5" value="7" type="radio" class="radio" onclick="javascript:payment();">
-												<span class="lbl"><img src="https://cdn.mrpizza.co.kr/2014_resources/images/order/img_payco_modify.png" alt="PAYCO" style="height: 20px;"></span>
-											</label>
-											<p class="payco_info">
-												PAYCO는 온/오프라인 쇼핑은 물론 송금, 멤버십 적립까지 가능한 통합 서비스입니다.<br>
-												휴대폰과 카드 명의자가 동일해야 결제 가능하며, 결제금액 제한은 없습니다.<br>
-												- 지원카드: 모든 국내 신용/체크카드
-											</p>	
+											
 										</td>
 									</tr>
 
@@ -836,9 +760,7 @@
 										<strong>압구정점</strong>
 									</p>
 									
-										<p>
-											<strong>예상시간 <span class="t_red"><b>30</b>분</span></strong>
-										</p>
+										
 									
 									
 								</div>
@@ -865,12 +787,7 @@
 								</ul>
 								<ul class="dc_pay">
 									<li>주문금액 <strong id="order_list_price">27,900원</strong></li>
-									<li>통신사할인 <strong id="order_mobile_desc_price">-0원</strong></li>
-									<li>신용카드할인 <strong id="order_card_desc_price">-0원</strong></li>
-									<li>프로모션할인 <strong id="order_promo_desc_price">-0원</strong></li>
-									<li>쿠폰할인 <strong id="order_coupon_desc_price">-0원</strong></li>
-									<li><span class="t_org">E쿠폰제품</span> <strong id="order_ecoupon_desc_price">-0원</strong></li>
-									<!--<li class="t_org">온라인제품권 <strong>원</strong></li>-->
+									<li>쿠폰할인 <strong id="order_coupon_desc_price">-0원</strong></li>									<!--<li class="t_org">온라인제품권 <strong>원</strong></li>-->
 								</ul>
 								<div class="price">
 									<b>결제예정금액</b> <strong><span id="order_payment_price">27,900</span>원</strong>

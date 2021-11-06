@@ -74,7 +74,7 @@
 								
 								<li class="swiper-slide" style="width: 565px; height: 280px;"><a href="/event/event_view?seq=3925"><img src="//cdn.mrpizza.co.kr/2014_resources/images/main/img_evt_banner_01.jpg" alt="제휴 할인 현대카드 최대 50% M포인트 사용"></a></li>
 								<li class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 565px; height: 280px;"><a href="/menu/bonuspouch"><img src="//cdn.mrpizza.co.kr/2014_resources/images/main/img_evt_banner_210223_01.jpg" alt="배달주문 보너스 파우치 집에서 즐기는 미스터피자 풀~코스! 34,300원"></a></li>
-								<li class="swiper-slide" style="width: 565px; height: 280px;"><a href="/menu/homerunbox"><img src="//cdn.mrpizza.co.kr/2014_resources/images/main/img_store_banner_210917_3.jpg" alt="배달전용 홈런박스 베스트 피자와 치킨, 사이드를 한 방에! 31.500원"></a></li>
+								<li class="swiper-slide" style="width: 600px; height: 280px;"><a href="/menu/homerunbox"><img src="//cdn.mrpizza.co.kr/2014_resources/images/main/img_store_banner_210917_3.jpg" alt="배달전용 홈런박스 베스트 피자와 치킨, 사이드를 한 방에! 31.500원"></a></li>
 							<li class="swiper-slide swiper-slide-duplicate" style="width: 565px; height: 280px;"><a href="/event/event_view?seq=4105"> <img src="//cdn.mrpizza.co.kr/2014_resources/images/main/img_evt_banner_210222.jpg" alt="한몫잡은 화요일 매주 화/목 베스트 프리미엄라지 3종 방문포장40%off *일부매장재외">
 								</a></li></ul>
 							<div class="control">
