@@ -7,7 +7,7 @@
 	<title>Home</title>
 <link href="<c:url value="/resources/csslib.css" />" rel="stylesheet">
 </head>
-<body style="">
+<body onload="setInitialization();" style="">
 	<!-- skipNavi -->
 	<div id="skipNavi">
 		<a href="#contents">본문 바로가기</a> <a href="#gnb">주메뉴 바로가기</a> <a href="#footer">사이트정보 바로가기</a>
@@ -907,7 +907,7 @@
 							</p>
 						</section>
 						<section class="r_order">
-							<div class="pay_box" style="top: 205px;">
+							<div class="pay_box" style="top: 30px;">
 								<h1>주문계산</h1>
 								<div class="store">
 									<p>
@@ -1030,7 +1030,7 @@
 				<p class="mt20 naver_login_btn_wrap">
 					<a href="/login_join/findID" class="button grad btn_move w120 f12">아이디/비밀번호찾기</a>
 					<a href="/login_join/join" class="button grad btn_move w80 f12">회원가입하기</a>
-					<span id="naver_id_login_popup"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=token&amp;client_id=HrPgLEnk0VGTGSOYakKo&amp;redirect_uri=https%3A%2F%2Fwww.mrpizza.co.kr%2Flogin_join%2FNaverResult&amp;state=23c4b294-b030-4026-82e3-0c8d3c8d52fe" onclick="window.open(this.href, 'naverloginpop', 'titlebar=1, resizable=1, scrollbars=yes, width=600, height=550'); return false" id="naver_id_login_anchor" class="naver_btn"><img src="http://static.nid.naver.com/oauth/big_g.PNG" border="0" title="네이버 아이디로 로그인" width="152.625px" height="33px"></a> </span> <!-- 네이버 로그인 -->
+					<span id="naver_id_login_popup"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=token&amp;client_id=HrPgLEnk0VGTGSOYakKo&amp;redirect_uri=https%3A%2F%2Fwww.mrpizza.co.kr%2Flogin_join%2FNaverResult&amp;state=4aac9cf4-e031-4591-95f5-3cddf62fbd4a" onclick="window.open(this.href, 'naverloginpop', 'titlebar=1, resizable=1, scrollbars=yes, width=600, height=550'); return false" id="naver_id_login_anchor" class="naver_btn"><img src="http://static.nid.naver.com/oauth/big_g.PNG" border="0" title="네이버 아이디로 로그인" width="152.625px" height="33px"></a> </span> <!-- 네이버 로그인 -->
 					<!-- 페이코 버튼 노출 영역 -->
 					<a href="javascript:order();" class="payco_login_btn">페이코 로그인</a>
 					<!-- // 페이코 버튼 노출 영역 -->
@@ -1797,5 +1797,4 @@ function gtag_report_conversion(url) {
 
 
 <div id="adn_container" style="display:none"></div><iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="about:blank"></iframe><div id="adn_panel_wrap" class="closing_bg" style="display: none;"></div></body>
-
 </html>

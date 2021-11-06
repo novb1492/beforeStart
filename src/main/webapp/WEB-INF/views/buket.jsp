@@ -669,7 +669,7 @@ window.ne_tgm_q.push(
 				<strong><span>27,900</span>원</strong>
 			</div>
 			<p class="t_center">
-				<a href="javascript:void(0);" onclick="javascript:goOrder();" class="button h40 red">할인선택 <span class="gt">&gt;</span></a>
+				<a href="/demo2/pay"  class="button h40 red">할인선택 <span class="gt">&gt;</span></a>
 			</p>
 		</div>
 	</section>

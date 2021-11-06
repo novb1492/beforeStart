@@ -524,7 +524,7 @@
 				</div>
 
 				<p class="mt40 t_center">
-					<a href="javascript:chkDeliveryComplete();" class="button red h45 w170 order_type_btn">주문진행 <span class="gt">&gt;</span></a>
+					<a href="/demo2/buket" class="button red h45 w170 order_type_btn">주문진행 <span class="gt">&gt;</span></a>
 					<a href="javascript:location.href='/';" class="button h45 w170">취소 <span class="gt">&gt;</span></a>
 				</p>
 			</section>
