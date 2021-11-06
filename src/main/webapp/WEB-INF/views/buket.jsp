@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ include file="common/header.jsp" %>
 <html>
 <head>
 	<title>Home</title>
-<link href="<c:url value="/resources/csslib.css" />" rel="stylesheet">
 </head>
 <body style="">
 <!-- WIDERPLANET  SCRIPT START 2017.7.13 -->
@@ -91,84 +90,7 @@ window.ne_tgm_q.push(
 <form id="encModeForm" hidden="true">
 </form>
 
-<header class="header">
-	<div class="inner_renew">
-		<div class="gnb_wrap">
-			<h1><a href="/">로고</a></h1>
-			<nav class="gnb">
-				<ul>
-					<li class="order_gnb">
-					
-						 
-						
-							<a href="#" onclick="javascript:go_OnlineOrder();"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_01.png" alt="바로주문"></i><span><strong>바로주문</strong></span></a>
-						
-						
-						
-					</li>
-					<li>
-						<a href="/menu/premium"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_02.png" alt="메뉴"></i>메뉴</a>
-						<ul>
-							<li><a href="/menu/premium">피자</a></li>
-							<li><a href="/menu/pizzasand">1인용피자</a></li>
-							<li><a href="/menu/doublethin">특가세트</a></li>
-							<li><a href="/menu/appetizer">샐러드&amp;사이드</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="/store/store_search"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_03.png" alt="매장"></i>매장</a>
-						<ul>
-							<li><a href="/store/store_search">매장찾기</a></li>
-							<li><a href="/store/storeBuffet_search">뷔페매장</a></li>
-							<li><a href="/store/store_menu">매장전용메뉴</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="/event/event_on"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_04.png" alt="이벤트"></i>이벤트</a>
-						<ul>
-							<li><a href="/event/new_menu">신제품 소개</a></li>
-							<li><a href="/event/event_on">진행중 이벤트</a></li>
-							<li><a href="/event/event_off">종료된 이벤트</a></li>
-							<li><a href="/discount/allianceDiscount">할인안내</a></li>
-						</ul>
-					</li>
-					<li>
-						<!-- 비로그인상태 -->
-						<!-- <a href="/login_join/login"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_05.png" alt="마이미피"></i>마이미피</a> -->
-						<!-- 로그인상태 -->
-						<!-- <a href="/mypage/myMipi"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_05.png" alt="마이미피"></i>마이미피</a> -->
-						
-							 
-							
-								<a href="/mypage/myMipi"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_05.png" alt="마이미피"></i>마이미피</a>
-								
-								<ul>
-									<li><a href="/mypage/myMipi">마이  미피</a></li>
-									<li><a href="/mypage/orderList">내주문내역</a></li>
-									<li><a href="/mypage/myCoupon">내쿠폰</a></li>
-									<li><a href="/mypage/myQnaList">내문의내역</a></li>
-									<li><a href="/mypage/myInfo_step1">정보수정</a></li>
-									<li><a href="/menu/allpizza">장바구니</a></li>
-									<li><a href="/mypage/drop_step1">회원탈퇴</a></li>
-								</ul>
-							
-							
-						
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="hd_btn_area">
-			
-				
-							
-				 
-				
-			
-			<button type="button" class="btn_gnb"><i></i><span class="blind">gnb열기</span></button>
-		</div>
-	</div>
-</header>
+
 
 	<!-- 무료제공 프로모션 팝업 -->
 	
@@ -1125,50 +1047,9 @@ window.ne_tgm_q.push(
 <!-- //pop_layer -->
 
 <!-- // topping -->
+<%@include file="common/footer.jsp" %>
 
 
-<footer class="footer_renew">
-	<div class="line_area">
-		<div class="inner_renew">
-			<ul class="link_list">
-				<li><a href="/login_join/rules">개인정보취급방침</a></li>
-				<li><a href="/login_join/rules">이용약관</a></li>
-				<li><a href="/brand/franchise">가족점모집</a></li>
-				<li><a href="/cscenter/cscenter_main">고객만족센터</a></li>
-				<li><a href="#popGroupOrder" class="pop_open">단체주문</a></li>
-			</ul>
-			<div class="lang_wrap">
-				<button type="button">Korean</button>
-				<ul class="lang_list">
-					<li><a href="http://usmpk.mrpizza.co.kr/en/" target="_blank">English</a></li>
-					<li><a href="http://chmpk.mrpizza.co.kr/ch/" target="_blank">Chinese</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="inner_renew">
-		<div class="info_wrap">
-			<address>서울시 서초구 효령로 132 대표이사:이종영 개인정보 관리책임자:김정한 통신판매업:2009-서울서초-1700 사업자등록번호 214-81-93179</address>
-			<p class="copy">Copyright © MP DAESAN. All rights reserved.</p>
-			<ul class="sns_list">
-				<li class="facebook"><a href="https://www.facebook.com/mrpizzalove" target="_blank"><span>미스터피자 페이스북</span></a></li>
-				<li class="kakaostory"><a href="https://story.kakao.com/ch/mrpizza" target="_blank"><span>미스터피자 카카오스토리</span></a></li>
-				<li class="instagram"><a href="https://instagram.com/mrpizzalove" target="_blank"><span>미스터피자 인스타그램</span></a></li>
-				<li class="blog"><a href="https://blog.naver.com/mrpizzalove" target="_blank"><span>미스터피자 블로그</span></a></li>
-			</ul>
-		</div>
-		<div class="award_wrap">
-			<ul>
-				<li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_01.jpg" alt=""><span>대한민국 대표<br>고객만족도 조사<br>7회 수상<br>(2007·2009-2014)</span></li>
-				<li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_02.jpg" alt=""><span>좋은기업 대상 <br>9회 연속수상</span></li>
-				<li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_03.jpg" alt=""><span>브랜드스타<br>12회 연속수상</span></li>
-				<li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_04_210119.jpg" alt=""><span>2021년<br>세계일류상품<br>차세대부분수상</span></li>
-				<li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_05.jpg" alt=""><span>세계 피자대회<br>2019년 2관왕</span></li>
-			</ul>
-			<p class="num">전화주문 <strong>1577-0077</strong></p>
-		</div>
-	</div>
-</footer>
 <!-- popup -->
 <article id="popGroupOrder" class="pop_wrap pop_layer hide">
 	<h1>미스터피자</h1>			
