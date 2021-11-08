@@ -3,25 +3,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>payPage</title>
+	<script src="https://tbnpg.settlebank.co.kr/resources/js/SettlePG.js"></script>
 </head>
 <body onload="setInitialization();" style="">
 <%@ include file="../common/header.jsp" %>
 
 	<!-- skipNavi -->
-	<div id="skipNavi">
-		<a href="#contents">본문 바로가기</a> <a href="#gnb">주메뉴 바로가기</a> <a href="#footer">사이트정보 바로가기</a>
-	</div>
+
 	<!-- //skipNavi -->
 
 	<!-- wrap -->
 	<div id="wrap">
 		<!-- header -->
-		
-
-
-
-
 
 <script src="/js/mrpizza/common/rsamode.js"></script>
 
@@ -793,7 +787,7 @@
 									<b>결제예정금액</b> <strong><span id="order_payment_price">27,900</span>원</strong>
 								</div>
 								<p class="t_center">
-									<a href="javascript:goOrderBefore();" class="button h40 red pay_btn" id="pay_btn">결제하기 <span class="gt">&gt;</span></a>
+									<a href="#" onclick="requestPost('/demo2/test',null)" class="button h40 red pay_btn" id="pay_btn">결제하기 <span class="gt">&gt;</span></a>
 								</p>
 							</div>
 						</section>

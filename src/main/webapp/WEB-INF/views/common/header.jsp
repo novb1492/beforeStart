@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/csslib.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/jslib.js" />"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 <header class="header">

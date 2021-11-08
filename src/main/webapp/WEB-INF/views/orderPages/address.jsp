@@ -5,6 +5,7 @@
 <html>
 <head>
 	<title>Home</title>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body style="">
 	<!-- skipNavi -->
@@ -38,52 +39,9 @@
 	<!-- 무료제공 프로모션 팝업 -->
 	
 
-<script type="text/javascript">
-	function PromotionTypeChk(type){ //type 노출되는 항목갯수
 
-		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
-		console.log("eventchk400 = "+eventchk400);
-		if(typeof eventchk400 === "undefined"){
-			alert("피자만 구매하기 또는 증정품 중 한가지를 선택해 주세요.");
-			return;			
-		}else if(eventchk400 == "other"){
-			//일반 진행
-			chkSelectionPromotion('other');
-			return;
-		}else if(eventchk400 == "PM0470_Large_1"){
-			setCartDataFreeMenu('sideproductItem_400_Large_1', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]오븐미트스파게티+베이크윙 8조각은 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Large").hide();
-			$(".bgLayer").hide();				
-		}
-		else if(eventchk400 == "PM0470_Regular_2"){
-			setCartDataFreeMenu('sideproductItem_400_Regular_2', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 미피떡볶이, 홈샐러드(9구) 중 한가지만 선택하여 주문 가능합니다.\n미피떡볶이는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Regular").hide();
-			$(".bgLayer").hide();	
-		}
-		else if(eventchk400 == "PM0470_Regular_3"){
-			setCartDataFreeMenu('sideproductItem_400_Regular_3', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 미피떡볶이, 홈샐러드(9구) 중 한가지만 선택하여 주문 가능합니다.\n홈샐러드(9구)는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Regular").hide();
-			$(".bgLayer").hide();	
-		}
-	}	
-	
-</script>	
 
-<style>
-.pop_newPromotion1906 .select_item label {width:233px}
-.pop_newPromotion210219.promotion_L .select_item label.item0 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_1_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item0 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_1_on.jpg') no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item2 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_2_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item2 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_2_on.jpg') no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item3 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210413_item_3_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item3 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210413_item_3_on.jpg') no-repeat;}
-</style>
+
 
 <!-- 프리미엄 9종 L 주문시 -->
 <article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion210219 promotion_L hide" id="pop_order_event_Large">
@@ -171,34 +129,7 @@
 	<!-- 무료제공 프로모션 팝업_두번째 -->
 	
 
-<script type="text/javascript">
-	function PetPromotionTypeChk(type){ //type 노출되는 항목갯수
 
-		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
-		
-		if(eventchk400 === "undefined"){
-			alert("항목을 선택해주세요.");
-			return;			
-		}else if(eventchk400 == "other"){
-			//일반 진행
-			chkSelectionPromotion('other');
-			return;
-		}else if(eventchk400 == "PM0460_Large_1"){
-			setCartDataFreeMenu('petsideproductItem_400_Large_1', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 펫치블스, 펫페퍼로니 중 한가지만 선택하여 주문 가능합니다.\n펫치블스는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_pet_Large").hide();
-			$(".bgLayer").hide();				
-		}else if(eventchk400 == "PM0460_Large_2"){
-			setCartDataFreeMenu('petsideproductItem_400_Large_2', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 펫치블스, 펫페퍼로니 중 한가지만 선택하여 주문 가능합니다.\n펫페퍼로니는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_pet_Large").hide();
-			$(".bgLayer").hide();				
-		}
-	}	
-	
-</script>	
 
 <!-- 핫앤뉴 7종 L 주문시 -->
 <article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion1909 promotion_L hide" id="pop_order_event_pet_Large">
@@ -278,13 +209,7 @@
 							</a>
 						</li>
 						
-						<li class="bg_v">
-							<a href="javascript:setOrderTypeSelection(2, 'move');" class="order_type_btn">
-								<p class="tit">방문포장</p>
-								<p class="sub">To Go</p>
-								<p class="txt">인터넷으로 예약하고 <br>매장에서 찾아가세요.</p>							
-							</a>
-						</li>
+				
 						
 					</ul>
 				</div>
@@ -337,9 +262,9 @@
 				<div class="zip_guide">
 					<ul class="tabmenu2 mt30 tabMotion deliTab">
 						<li class="on"><a href="#tabCon11"><span>내 배달주소</span></a></li>
-						<li><a href="#tabCon12"><span>새로운 배달주소</span></a></li>
+
 					</ul>
-					<p><a href="#pop_zipGuide" class="button btn_guide pop_open">주소등록안내</a></p>
+					<p><a href="#" onclick="sample6_execDaumPostcode()" class="button btn_guide pop_open">주소등록</a></p>
 				</div>
 				
 				<div id="tabCon11" class="tab_cont" style="display: block;">
@@ -359,13 +284,26 @@
 								<!-- <th scope="col">설정</th> -->
 							</tr>
 						</thead>
-						<tbody><tr><td><label><input type="radio" class="radio myDelivery" name="deliveryType" onclick="javascript:setDeliveryBranchInfo('0')" alt="Y" value="23715381" checked="checked"><span class="lbl"><span class="blind">선택</span></span></label></td><td>압구정점</td><td class="t_gray t_left">서울 강남구 가로수길 9 어딕나/신사동 536-9  <span class="icon_txt">기본주소</span></td></tr></tbody>
+						<tbody>
+						<tr>
+							<td>
+							<label>
+							<input type="radio" class="radio myDelivery" name="deliveryType" onclick="javascript:setDeliveryBranchInfo('0')" alt="Y" value="23715381" checked="checked">
+								<span class="lbl">
+									<span class="blind">선택</span>
+								</span>
+							</label>
+							</td>
+							<td>압구정점</td>
+							<td class="t_gray t_left">서울 강남구 가로수길 9 어딕나/신사동 536-9  <span class="icon_txt">기본주소</span></td></tr>
+							<tr><td><label><input type="radio" class="radio myDelivery" name="deliveryType" onclick="javascript:setDeliveryBranchInfo('1')" alt="" value="23715977"><span class="lbl"><span class="blind">선택</span></span></label></td><td>압구정점</td><td class="t_gray t_left">서울 강남구 가로수길 5 ㅇㄴㅇ/신사동 537-6</td></tr>
+							</tbody>
 					</table>
 					<p class="mt10">
-						<a href="#zipcode" class="button pop_open zip_open w60 h25 white">수정</a>
+						
 						<a href="javascript:chkDelMyDeliveryInfo();" class="button w60 h25 white pop_open">삭제</a>
 						
-							<a href="#popMyinfo" class="button h25 white pop_open">기본주소 설정</a>
+						
 						
 					</p>					
 				</div>
@@ -1202,7 +1140,6 @@ function initInputDate(){
 				</h1>
 				<ul class="tabmenu noline tabMotion mt20">
 					<li class="on"><a href="#q_tab01" title="배달주문"><span>배달주문</span></a></li>
-					<li><a href="#q_tab02" title="방문포장"><span>방문포장</span></a></li>
 				</ul>
 				<div id="q_tab01" class="tab_cont" style="display: block;">
 					
@@ -1764,7 +1701,55 @@ adn_panel_param.push([{
 	<!-- 미스터피자 미디어 큐브 태그 -->
 	<img src="//pixel.mathtag.com/event/img?mt_id=763274&amp;mt_adid=141063&amp;v1=&amp;v2=&amp;v3=&amp;s1=&amp;s2=&amp;s3=" width="1" height="1" alt="">
 	
+<script type="text/javascript">
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                document.getElementById("sample6_extraAddress").value = extraAddr;
+            
+            } else {
+                document.getElementById("sample6_extraAddress").value = '';
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("sample6_detailAddress").focus();
+        }
+    }).open();
+}
+</script>
 
 <div id="adn_container" style="display:none"></div><iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="about:blank"></iframe><div id="adn_panel_wrap" class="closing_bg" style="display: none;"></div><iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE" style="display: none;"></iframe></body>
 </html>
