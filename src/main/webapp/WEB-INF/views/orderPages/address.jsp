@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="../common/header.jsp" %>
 <html>
 <head>
 	<title>Home</title>
 </head>
-<body onload="setInitialization();" style="">
-<%@ include file="common/header.jsp" %>
-
+<body style="">
 	<!-- skipNavi -->
 	<div id="skipNavi">
-		<a href="#contents">본문 바로가기</a> <a href="#gnb">주메뉴 바로가기</a> <a href="#footer">사이트정보 바로가기</a>
+		<a href="#contents">본문 바로가기</a>
+		<a href="#gnb">주메뉴 바로가기</a>
+		<a href="#footer">사이트정보 바로가기</a>
 	</div>
 	<!-- //skipNavi -->
 
@@ -244,11 +245,14 @@
 	
 		<!-- //header -->
 
-		<script type="text/javascript">
-			//StartSmartUpdate(); // inicis
-		</script>
-
 		<!-- container -->
+		<form id="branchForm" target="_blank">
+			<!-- <input type="hidden" id="point_x" name="point_x" value=""/>
+			<input type="hidden" id="point_y" name="point_y" value=""/> -->
+			<input type="hidden" id="view_branch_id" name="branch_id" value="">
+		</form>
+		<form id="deliveryForm" name="deliveryForm">
+		
 		<div id="container" class="full_cont">
 			<!-- lnb -->
 			<aside id="lnb">
@@ -260,573 +264,636 @@
 			<section id="contents">
 				<ul id="location">
 					<li><a class="home" href="/index">HOME</a></li>
-					<li><strong>결제하기</strong></li>
+					<li><strong>온라인주문</strong></li>
 				</ul>
-
-				<div class="order_top">
-					<div class="tit">
-						<h1>결제하기</h1>
-						<p>
-							
-							주문유형 : <span class="t_blue">배달주문</span>
-							
-							
-							
-						</p>
-						<p>
-							<a href="javascript:void(0);" onclick="javscript:setOrderTypeSelection(1, 'move');" class="button h30 p10 white"><img src="//cdn.mrpizza.co.kr/2014_resources/images/order/ic_reset.gif" alt="주문유형변경 아이콘"> 주문유형변경</a>
-						</p>
-					</div>
+				<h1 class="blind">온라인주문</h1>
+				<div class="order_choice">
+					<h2 class="order_tit"><img src="//cdn.mrpizza.co.kr/2014_resources/images/order/step1.gif" alt="step1"> 주문 유형 선택</h2>
 					<ul>
-						<!-- on클래스로 제어 -->
-						<li class="bg1"><p>장바구니</p></li>
-						<li class="bg2 on"><p>결제하기</p></li>
-						<li class="bg3"><p>주문완료</p></li>
+						<li class="bg_d on">
+							<a href="javascript:setOrderTypeSelection(1, 'move');" class="order_type_btn">
+								<p class="tit">배달주문</p>
+								<p class="sub">Delivery</p>
+								<p class="txt">인터넷으로 편리하게 <br>주문하세요.</p>
+							</a>
+						</li>
+						
+						<li class="bg_v">
+							<a href="javascript:setOrderTypeSelection(2, 'move');" class="order_type_btn">
+								<p class="tit">방문포장</p>
+								<p class="sub">To Go</p>
+								<p class="txt">인터넷으로 예약하고 <br>매장에서 찾아가세요.</p>							
+							</a>
+						</li>
+						
 					</ul>
 				</div>
 
-				<form id="inicisForm" name="inicisForm" action="/order/inicisNewStart" method="post" target="IfrmProc">
+				
+				<input type="hidden" id="order_type" name="order_type" value="">
+				<input type="hidden" id="delivery_seq" name="delivery_seq" value="23715381">
+				<input type="hidden" id="branch_id" name="branch_id" value="108910">
+				<input type="hidden" id="branch_nm" name="branch_nm" value="압구정점">
+				<input type="hidden" id="delivery_time" name="delivery_time" value="30">
+				<input type="hidden" id="dtime" name="dtime" value="0">
+				<input type="hidden" id="delivery_section" name="delivery_section" value="C-2">
+				<input type="hidden" id="point_x" name="point_x" value="313832">
+				<input type="hidden" id="point_y" name="point_y" value="546711">
+				
+				<input type="hidden" id="holiday" name="holiday" value="0">
+				<input type="hidden" id="branch_state_cd" name="branch_state_cd" value="1">
+				<input type="hidden" id="branch_address" name="branch_address" value="서울특별시 강남구 신사동 574-7 2층">
+				<input type="hidden" id="si" name="si" value="서울">
+				<input type="hidden" id="gu" name="gu" value="강남구">
+				<input type="hidden" id="dong" name="dong" value="가로수길">
+				<input type="hidden" id="bunji" name="bunji" value="9">
+				<input type="hidden" id="building" name="building" value="">
+				<input type="hidden" id="addr_append" name="addr_append" value="">
+				<input type="hidden" id="addr_desc" name="addr_desc" value="어딕나/신사동 536-9">
+				<input type="hidden" id="add_new_gubun" name="add_new_gubun" value="2">
+				<input type="hidden" id="cdate" name="cdate" value="20211105">
+				
+				<input type="hidden" id="deli_default" name="deli_default" value="Y">
 					
-					<!-- 
-					<input type="hidden" id="tabMenu2Index" name="tabMenu2Index" value="0" />
-					<input type="hidden" id="coupon_type" name="coupon_type" value="" />
-					<input type="hidden" id="card_number" name="card_number" value="" />
-					<input type="hidden" id="cust_lic" name="cust_lic" value="" />
-					<input type="hidden" id="card_gubun" name="card_gubun" value="" />
-					<input type="hidden" id="card_yymm" name="card_yymm" value="" />
-					<input type="hidden" id="mode" name="mode" value="" />
-					<input type="hidden" id="gopaymethod" name="gopaymethod" value="" />
-					<input type="hidden" id="check_url" name="check_url" value="" />
-					<input type="hidden" id="apply_url" name="apply_url" value="" />
-					<input type="hidden" id="sms_flag" name="sms_flag" value="Y" />
-					<input type="hidden" id="sms_guest_flag" name="sms_guest_flag" value="N" />
-					<input type="hidden" id="e_coupon_id" name="e_coupon_id" value="" />
-					<input type="hidden" id="e_coupon_cd" name="e_coupon_cd" value="" />
-					<input type="hidden" id="e_coupon_type" name="e_coupon_type" value="" />
-					<input type="hidden" id="smart_coupon_id" name="smart_coupon_id" value="" />
-					<input type="hidden" id="smart_coupon_price" name="smart_coupon_price" value="" />
-					<input type="hidden" id="mobile_phone" name="mobile_phone" value="" />
-					<input type="hidden" name="kakaopay_cid" value="" />
-					<input type="hidden" name="samsungSetFlag" value="N" />
-					<input type="hidden" name="GoodsName" value="미스터피자 온라인 주문"/>
-					 -->
-					<input type="hidden" id="tabMenu2Index" name="tabMenu2Index" value="0">
-					<input type="hidden" id="coupon_type" name="coupon_type" value="">
-					<input type="hidden" id="card_number" name="card_number" value="">
-					<input type="hidden" id="cust_lic" name="cust_lic" value="">
-					<input type="hidden" id="card_gubun" name="card_gubun" value="">
-					<input type="hidden" id="card_yymm" name="card_yymm" value="">
-					<input type="hidden" id="mode" name="mode" value="">
-					<input type="hidden" id="gopaymethod" name="gopaymethod" value="">
-					<input type="hidden" id="check_url" name="check_url" value="">
-					<input type="hidden" id="apply_url" name="apply_url" value="">
-					<input type="hidden" id="sms_flag" name="sms_flag" value="Y">
-					<input type="hidden" id="sms_guest_flag" name="sms_guest_flag" value="N">
-					<input type="hidden" id="e_coupon_id" name="e_coupon_id" value="">
-					<input type="hidden" id="e_coupon_cd" name="e_coupon_cd" value="">
-					<input type="hidden" id="e_coupon_type" name="e_coupon_type" value="">
-					<input type="hidden" id="smart_coupon_id" name="smart_coupon_id" value="">
-					<input type="hidden" id="smart_coupon_price" name="smart_coupon_price" value="">
-					<input type="hidden" id="mobile_phone" name="mobile_phone" value="">
-					<input type="hidden" name="kakaopay_cid" value="">
-					<input type="hidden" name="samsungSetFlag" value="N">
-					<input type="hidden" name="GoodsName" value="미스터피자 온라인 주문">
-					<input type="hidden" name="goodname" value="미스터피자 온라인 주문">
-					<input type="hidden" name="oid" value="">
-					<input type="hidden" name="version" value="1.0">
-					<input type="hidden" name="mid" value="">
-					<input type="hidden" name="price" value="">
-					<input type="hidden" name="currency" value="WON">
-					<input type="hidden" name="buyername" value="">
-					<input type="hidden" name="buyertel" value="">
-					<input type="hidden" name="buyeremail" value="">
-					<input type="hidden" name="timestamp" value="">
-					<input type="hidden" name="signature" value="">
-					<input type="hidden" name="returnUrl" value="https://www.mrpizza.co.kr/order/inicisNewReturn">
-					<input type="hidden" name="mKey" value="">
-					<input type="hidden" name="offerPeriod" value="">
-					<input type="hidden" name="acceptmethod" value="">
-					<input type="hidden" name="languageView" value="">
-					<input type="hidden" name="charset" value="">
-					<input type="hidden" name="payViewType" value="">
-					<input type="hidden" name="closeUrl" value="https://www.mrpizza.co.kr/order/inicisNewClose">
-					<input type="hidden" name="quotabase" value="">
-					<input type="hidden" name="ini_onlycardcode" value="">
-					<input type="hidden" name="ini_cardcode" value="">
-					<input type="hidden" name="ansim_quota" value="">
-					<input type="hidden" name="INIregno" value="">
-					<input type="hidden" name="merchantData" value="">
-				</form>
-
-				<form id="paymentForm" name="paymentForm">
-					<input type="hidden" id="order_type" name="order_type" value="1"> <input type="hidden" id="branch_id" name="branch_id" value="108910">
-					<input type="hidden" id="branch_nm" name="branch_nm" value="압구정점"> <input type="hidden" id="reserv_time" name="reserv_time" value=""> <input type="hidden" id="reserv_time_text" name="reserv_time_text" value=""> <input type="hidden" id="order_memo" name="order_memo" value=""> <input type="hidden" id="naverpay_receipt" name="naverpay_receipt" value=""> <input type="hidden" id="list_price" name="list_price" value="27900"> <input type="hidden" id="disc_price" name="disc_price" value="0"> <input type="hidden" id="payment_price" name="payment_price" value="27900"> <input type="hidden" id="total_price" name="total_price" value="27,900"> <input type="hidden" id="mobileGift_desc_price" name="mobileGift_desc_price" value="0">
-					<input type="hidden" id="card_desc_price" name="card_desc_price" value="0"> <input type="hidden" id="promo_desc_price" name="promo_desc_price" value="0"> <input type="hidden" id="coupon_desc_price" name="coupon_desc_price" value="0"> <input type="hidden" id="eCoupon_desc_price" name="eCoupon_desc_price" value="0"> <input type="hidden" id="onlineGift_desc_price" name="onlineGift_desc_price" value=""> <input type="hidden" id="pay_amt" name="pay_amt" value="27,900"> <input type="hidden" id="guest_flag" name="guest_flag" value="N"> <input type="hidden" id="guest_auth_flag" name="guest_auth_flag" value="N"> <input type="hidden" id="eCoupon_otherDisc" name="eCoupon_otherDisc" value=""> <input type="hidden" id="notSaleProductCount" name="notSaleProductCount" value="0"> <input type="hidden" id="beselo_flag" name="beselo_flag" value="">
-					<!-- <input type="hidden" id="honey_flag" name="honey_flag" value=""/> -->
-					<input type="hidden" id="alarm_flag" name="alarm_flag" value=""> <input type="hidden" id="select_dc_opt" name="select_dc_opt" value="">
+				<input type="hidden" id="day_stime" name="day_stime" value="110000">
+				<input type="hidden" id="day_etime" name="day_etime" value="220000">
+				<input type="hidden" id="week_stime" name="week_stime" value="110000">
+				<input type="hidden" id="week_etime" name="week_etime" value="220000">
 					
-					<input type="hidden" id="newYear" name="newYear" value="2016-09-15">
-					<input type="hidden" id="delivery_section" name="delivery_section" value="C-2"> <input type="hidden" id="full_address" name="full_address" value="서울 강남구 가로수길 9 어딕나/신사동 536-9">
+				<input type="hidden" id="nowDate" name="nowDate" value="2021-11-05">
+				<input type="hidden" id="nowTime" name="nowTime" value="1738">
+				
+				<input type="hidden" id="newYear" name="newYear" value="2018-09-24">
+				
+				<input type="hidden" id="session_id" name="session_id" value="N20211104220401622">
+				<input type="hidden" id="session_mobile" name="session_mobile" value="">
+				<input type="hidden" id="user_auth_key" name="user_auth_key" value="">
+				
+				<input type="hidden" id="del_seq" name="del_seq" value="">
+				<input type="hidden" id="use_flag" name="use_flag" value="Y">
+				
+				<h2 class="order_tit"><img src="//cdn.mrpizza.co.kr/2014_resources/images/order/step2.gif" alt="step2"> 주소/매장 선택</h2>
+				
+				<div class="zip_guide">
+					<ul class="tabmenu2 mt30 tabMotion deliTab">
+						<li class="on"><a href="#tabCon11"><span>내 배달주소</span></a></li>
+						<li><a href="#tabCon12"><span>새로운 배달주소</span></a></li>
+					</ul>
+					<p><a href="#pop_zipGuide" class="button btn_guide pop_open">주소등록안내</a></p>
+				</div>
+				
+				<div id="tabCon11" class="tab_cont" style="display: block;">
+					<table id="myDeliveryList" class="tbl_style">
+						<caption>주소 선택 리스트 - 선택, 매장명, 주소, 설정 등을 확인</caption>
+						<colgroup>
+							<col style="width:46px">
+							<col style="width:120px">
+							<col>
+							<col style="width:160px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">선택</th>
+								<th scope="col">매장명</th>
+								<th scope="col">주소</th>
+								<!-- <th scope="col">설정</th> -->
+							</tr>
+						</thead>
+						<tbody><tr><td><label><input type="radio" class="radio myDelivery" name="deliveryType" onclick="javascript:setDeliveryBranchInfo('0')" alt="Y" value="23715381" checked="checked"><span class="lbl"><span class="blind">선택</span></span></label></td><td>압구정점</td><td class="t_gray t_left">서울 강남구 가로수길 9 어딕나/신사동 536-9  <span class="icon_txt">기본주소</span></td></tr></tbody>
+					</table>
+					<p class="mt10">
+						<a href="#zipcode" class="button pop_open zip_open w60 h25 white">수정</a>
+						<a href="javascript:chkDelMyDeliveryInfo();" class="button w60 h25 white pop_open">삭제</a>
+						
+							<a href="#popMyinfo" class="button h25 white pop_open">기본주소 설정</a>
+						
+					</p>					
+				</div>
 
-					<div class="order_wrap">
-						<section class="l_order">
-							<h2 class="cont_tit tit2">1.고객정보</h2>
-
-							<table class="tbl_style mt10 myInfo_form">
-								<caption>고객정보 입력폼</caption>
-								<colgroup>
-									<col style="width: 170px">
-									<col>
-								</colgroup>
-								<tbody>
-									<tr>
-										<th scope="row"><i class="t_red normal">*</i> 주문유형</th>
-										
-											<td class="t_left"><span class="line35">배달주문</span></td>
-										
-										
-										
-									</tr>
-
-									
-										<!-- 배달주문 주문시간 -->
-										<tr>
-											<th scope="row"><i class="t_red normal">*</i> <label for="OrderType">주문시간</label></th>
-											<td class="t_left"><label> <input name="OrderType" id="OrderType" type="radio" class="radio" value="N" onclick="javajscript:chkOrderType(this.value);" checked=""> <span class="lbl">바로주문</span>
-											</label>  <!-- 
-										<select class="sel4" title="배달시간 분 선택">
-											<option value="">분</option>
-										</select>
-										 --> </td>
-										</tr>
-										<!-- /배달주문 주문시간 -->
-									
-
-									
-
-									
-
-									
-										<!-- 배달주문, 포장주문 수령인 정보 -->
-										<tr>
-											<th scope="row"><i class="t_red normal">*</i> <label for="gift_from_nm">수령인</label></th>
-											<td class="t_left"><input type="text" id="gift_from_nm" name="gift_from_nm" class="inp4" placeholder="수령인이름 입력" title="수령인이름 입력" maxlength="10" value="김준영">
-											</td>
-										</tr>
-										<!-- /배달주문, 포장주문 수령인 정보 -->
-									
-									
-
-									<!-- 회원 -->
-									
-										<!-- 배달주문, 포장주문 연락처 -->
-										<tr>
-											<th scope="row"><i class="t_red normal">*</i> <label for="view_delivery_phone1">연락처</label></th>
-											<td class="t_left"><input type="text" id="view_delivery_phone1" name="view_delivery_phone1" value="" class="inp6" onkeyup="chkNum(this);" maxlength="3" title="연락처 앞자리 입력"> <input type="text" id="view_delivery_phone2" name="view_delivery_phone2" value="" class="inp6" onkeyup="chkNum(this);" maxlength="4" title="연락처 중간자리 입력"> <input type="text" id="view_delivery_phone3" name="view_delivery_phone3" value="" class="inp6" onkeyup="chkNum(this);" maxlength="4" title="연락처 뒷자리 입력"> <label class="ml16">
-													<input id="order_sms_flag" name="order_sms_flag" type="checkbox" class="checkbox" onclick="javascript:chkSmsFlag();" checked="checked"> <span class="lbl">주문정보sms받기</span>
-											</label></td>
-										</tr>
-										<!-- /배달주문, 포장주문 연락처 -->
-									
-									
-									<!-- /회원 -->
-
-									<!-- 비회원 -->
-									
-									<!-- /비회원 -->
-
-									
-
-									
-										<tr>
-											<th scope="row"><i class="t_red normal">*</i> 주소</th>
-											<td class="t_left">
-												<div>
-													<span class="line30">서울 강남구 가로수길 9 어딕나/신사동 536-9</span>
-												</div>
-											</td>
-										</tr>
-									
-
-									<tr>
-										<th scope="row"><i class="t_red normal">*</i> 매장정보</th>
-										<td>
-											<table class="tbl_style2">
-												<caption>배달매장 - 매장명, 주소, 전화번호, 매장보기 등 확인</caption>
-												<colgroup>
-													<col style="width: 100px">
-													<col>
-													<col style="width: 100px">
-													<col style="width: 80px">
-												</colgroup>
-												<thead>
-													<tr>
-														<th scope="col" class="t_center">매장명</th>
-														<th scope="col" class="t_center">주소</th>
-														<th scope="col" class="t_center">전화번호</th>
-
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>압구정점</td>
-														<td class="t_left">서울특별시 강남구 신사동 574-7 2층</td>
-														<td>02-512-1161</td>
-													</tr>
-												</tbody>
-											</table>
-										</td>
-									</tr>
-
-									
-										<!-- 배달주문, 포장주문 요청사항 -->
-										<tr>
-											<th scope="row"><label for="ordermemo">요청사항</label></th>
-											<td class="t_left">
-												<p>
-													<input type="text" id="ordermemo" name="ordermemo" style="width: 546px;" placeholder="요청 메시지를 입력해주세요" maxlength="30" title="요청 메시지 입력">
-												</p>
-												<ul class="txt_list mt5">
-													<li>특정 프로모션 시 배달 시간을 요청하셔도 해당 시간에 배달이 어렵습니다. 양해 부탁
-														드립니다.</li>
-												</ul>
-											</td>
-										</tr>
-										<!-- /배달주문, 포장주문 요청사항 -->
-									
-
-									
-
-								</tbody>
-							</table>
-
-							<h2 class="cont_tit tit2 mt60">
-								2.할인수단
-								
-							</h2>
-							<p class="pt5">
-								
-							</p>
-							<ul class="tabmenu2 mt10 tabMotion">
-								<li class="w100"><span>쿠폰입력</span></li>
-								
-							</ul>
-							
-							<input type="hidden" id="sizeup_flag">
-
-
-							<script type="text/javascript">
-							//임시스크립트
-							$(function(){
-								$('.dc_opt').click(function(){
-									var _val = $(this).val();
-									$(this).parents('li').addClass('on').siblings().removeClass('on');	//현재 탭 라디오 버튼 선택 처리 및 나머지 선택 해제
-									$('#select_dc_opt').val(_val);		//현재 선택된 할인수단 타입 저장
-									
-									//html load
-									if(_val == 'skti' || _val == 'yt20' || _val == 'sktlt50' || _val == 'ktf' || _val == 'ktf50' || _val == 'ktfdb' || _val == 'lgti' 
-											|| _val == 'ocb' || _val == 'skti01' || _val == 'skti02' || _val == 'lgti40' || _val == 'skti30' || _val == 'ocb50') {
-										
-										getMobileAjaxRequest('discount_mobile_contents', _val);
-										setHiddenView('mobile');
-									} else if(_val == 'spb' || _val == 'hdc' || _val == 'bct' || _val == 'woori' || _val == 'bcday50' || _val =='bc15' ||_val =='lotte15' || _val =='lotte40') {
-										getMobileAjaxRequest('discount_card_contents', _val);
-										setHiddenView('card');
-										$('input[name="payGroup"]:radio:input[value="2"]').attr('checked', true);
-									} else if(_val == 'tsc' || _val == 'wmd' || _val == 'take' || _val == 'take30' || _val == 'take40' || _val == 'top5' || _val == 'osole' 
-											|| _val == 'shinhan30' || _val == 'renewal' || _val == 'syrup' || _val == 'sizeup' || _val == 'dream' 
-											|| _val == 'hanac' || _val == 'kakaoc' || _val == 'ktc' || _val == 'bcsuc' || _val == 'bcday40' || _val == 'yearend') {
-										getMobileAjaxRequest('discount_promotion_contents', _val);
-										setHiddenView('promotion');
-										if(_val == 'bcday40') {
-											$('input[name="payGroup"]:radio:input[value="2"]').attr('checked', true);
-										}
-									} else if(_val == 'smc' || _val == 'bccoop' || _val == 'lgucoop' || _val == 'ktshow' || _val == 'newbccoop' || _val == 'graduatecoop' || _val == 'specialdaycoop'
-											||  _val == 'bc1salecoop' || _val == 'uservip50' || _val == 'hongcho' || _val == 'mpfriends' || _val == 'newmpfriends' || _val == 'mplpizza'
-												 || _val == 'zlgoonpay') {
-										getMobileAjaxRequest('discount_coupon_contents', _val);
-										setHiddenView('coupon');
-										if(_val == 'newbccoop' || _val == 'graduatecoop'  || _val == 'bc1salecoop' ) {
-											$('input[name="payGroup"]:radio:input[value="2"]').attr('checked', true);
-										}										
-									} else if (_val == 'familygift') {
-										getMobileAjaxRequest('discount_gift_contents', _val);
-										setHiddenView('gift');
-										
-									} else if(_val == "welfare15") {
-										getMobileAjaxRequest('discount_welfare_contents', _val);
-										setHiddenView('welfare');
-									} else {
-										
-										var frm = document.getElementById("paymentForm");
-										
-										//주문에 E쿠폰(제품권) 제품이 있을 경우 제휴할인 가능한지 체크함.
-										if(frm.eCoupon_otherDisc.value) {
-											
-											if(frm.eCoupon_otherDisc.value == 'N') {
-												$('input[name="dc_opt"]').attr('checked', false);
-												$('#select_dc_opt').val("");		//현재 선택된 할인수단 타입 초기화
-												alert('E-쿠폰 외 ‘피자’ 포함 추가 주문시에만 통신&제휴/카드 할인 가능합니다.');
-												return;
-											} else if(frm.eCoupon_otherDisc.value == 'Y') {
-												$('input[name="dc_opt"]').attr('checked', false);
-												$('#select_dc_opt').val("");		//현재 선택된 할인수단 타입 초기화
-												alert('E-쿠폰 사용시에는 프로모션/쿠폰 할인을 이용하실 수 없습니다.');
-												return;
-											}
-										}
-										
-										if($("#sizeup_flag").val() == "Y"){
-											$('input[name="dc_opt"]').attr('checked', false);
-											$('#select_dc_opt').val("");		//현재 선택된 할인수단 타입 초기화
-											alert('사이즈업 할인시 타 할인 적용 불가 합니다.');
-											return;
-										}
-										
-										
-										$('#' + _val).show().siblings('.tab_cont').hide();
-										setHiddenView('coupon');
-									}
-									
-									//할인수단별 할인 관련 url 가져오기
-									if(_val != 'mycoupon' && _val != 'skti01' && _val != 'skti02') {
-										getDiscountTypeURL(_val);
-									}
-									//사이즈업 프로모션인경우에는 변경되지않도록
-									if($("#sizeup_flag").val() != 'Y'){
-										$('#order_list_price').html($('#total_price').val()+'원');
-										$('#order_mobile_desc_price').html('-'+$('#mobileGift_desc_price').val()+'원');
-										$('#order_card_desc_price').html('-'+$('#card_desc_price').val()+'원');
-										$('#order_promo_desc_price').html('-'+$('#promo_desc_price').val()+'원');
-										$('#order_coupon_desc_price').html('-'+$('#coupon_desc_price').val()+'원');
-										$('#order_ecoupon_desc_price').html('-'+$('#eCoupon_desc_price').val()+'원');
-										$('#order_payment_price').html($('#pay_amt').val());
-									}
-									
-									//다른 탭 라디오 버튼 선택 해제 처리
-									$(this).parents('li').parents('div').siblings().find('ul').find('li').removeClass('on');
-								});
-							});
-						</script>
-
-							<!-- 통신&제휴할인 -->
-							<!--  
-						<div id="tabCon1" class="discount_box tab_cont" style="background:#fff">
-							tttt
-						</div>
-						-->
-							
-								
-								
-						<input type="text" placeholder="쿠폰번호를 입력해주세요">
-								
-							
-
-							<!-- /통신&제휴할인 -->
-
-							<!-- 카드할인 -->
-							
-								
-								
-									
-							
-							<!-- 웰페어 -->
-							
-
-							
-
-							<h2 class="cont_tit tit2 mt60">3.결제수단</h2>
-
-							<table class="tbl_style mt10 myInfo_form">
-								<caption>결제수단 입력폼</caption>
-								<colgroup>
-									<col style="width: 170px">
-									<col>
-								</colgroup>
-								<tbody>
-									
-										
-
-										<!-- 퍼블리셔 임시스크립트: 옴겨주세요 -->
-										<script type="text/javascript">
-									$(function(){
-										$('input[name=cash_user]').change(function(){
-											var _val = $(this).val();											
-											$('#'+ _val).show().siblings('div').hide();
-										});
-									});
-								</script>
-										<tr id="cashBox" class="hide">
-											<th scope="row"><label for="cash_user">현금영수증</label></th>
-											<td class="t_left">
-												<div class="cash_box">
-													<ul>
-														<li><label> <input id="cash_user" name="cash_user" type="radio" class="radio" value="cashCon1"> <span class="lbl">개인</span>
-														</label></li>
-														<li><label> <input name="cash_user" type="radio" class="radio" value="cashCon2"> <span class="lbl">사업자</span>
-														</label></li>
-													</ul>
-													<div id="cashCon1" class="hide mt20">
-														<p>
-															<input type="text" id="cash_phone1" name="cash_phone1" class="inp6" maxlength="3" onkeyup="javascript:chkFocusMove('cash_phone1', 'cash_phone2', 3);" onkeydown="javascript:chkNum(this);" title="연락처 앞자리 입력" placeholder="010" value="010"> <input type="text" id="cash_phone2" name="cash_phone2" class="inp6" maxlength="4" onkeyup="javascript:chkFocusMove('cash_phone2', 'cash_phone3', 4);" onkeydown="javascript:chkNum(this);" title="연락처 중간자리 입력">
-															<input type="text" id="cash_phone3" name="cash_phone3" class="inp6" maxlength="4" onkeydown="javascript:chkNum(this);" title="연락처 뒷자리 입력">
-														</p>
-														<p class="t_red">현금 영수증 받을 전화번호를 입력해주세요.</p>
-														<ul class="txt_list mt10">
-															<li>현금 영수증 발급 받을 전화번호 입력</li>
-															<li>배달직원에게 직접 현금으로 지불하여 주세요.</li>
-														</ul>
-													</div>
-													<div id="cashCon2" class="hide mt20">
-														<p>
-															<input type="text" id="cash_licensee" name="cash_licensee" class="inp4" maxlength="10" onkeydown="javascript:chkNum(this);" placeholder="사업자번호 입력" title="사업자번호 입력">
-														</p>
-														<p class="t_red">현금 영수증 받을 사업자 번호를 입력해주세요.</p>
-														<ul class="txt_list mt10">
-															<li>현금 영수증 발급 받을 사업자 번호 입력</li>
-															<li>배달직원에게 직접 현금으로 지불하여 주세요</li>
-														</ul>
-													</div>
-												</div>
-											</td>
-										</tr>
-									
-									<tr>
-										<th scope="row"><label for="payGroup">인터넷 결제</label></th>
-										<td class="t_left"><label> <input name="payGroup" id="payGroup" value="2" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl">신용카드</span>
-										</label> <label class="ml30"> <input name="payGroup" id="payGroup2" value="3" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl">가상계좌</span>
-										</label> <label class="ml30"> <input name="payGroup" id="payGroup3" value="5" type="radio" class="radio" onclick="javascript:payment();"> <span class="lbl"><img src="https://cdn.mrpizza.co.kr/2014_resources/images/order/img_kakaopay_new.png" alt="카카오페이"></span>
-										</label>
-										
-												
-											
-										</td>
-									</tr>
-
-									<tr id="naverpaycashBox" class="hide">
-										<th scope="row"><label for="cash_user">네이버페이
-												현금영수증</label></th>
-										<td class="t_left">
-											<div class="cash_box">
-												<ul>
-													<li><label> <input name="navercash_user" type="radio" class="radio" value="navercashCon1"> <span class="lbl">개인</span>
-													</label></li>
-													<li><label> <input name="navercash_user" type="radio" class="radio" value="navercashCon2"> <span class="lbl">사업자</span>
-													</label></li>
-													<li><label> <input name="navercash_user" type="radio" class="radio" value="navercashCon3"> <span class="lbl">선택안함</span>
-													</label></li>
-												</ul>
-												<div id="navercashCon1" class="hide mt20">
-													<p>
-														<input type="text" id="navercash_phone1" name="navercash_phone1" class="inp6" maxlength="3" onkeyup="javascript:chkFocusMove('cash_phone1', 'cash_phone2', 3);" onkeydown="javascript:chkNum(this);" title="연락처 앞자리 입력" value="010"> <input type="text" id="navercash_phone2" name="navercash_phone2" class="inp6" maxlength="4" onkeyup="javascript:chkFocusMove('cash_phone2', 'cash_phone3', 4);" onkeydown="javascript:chkNum(this);" title="연락처 중간자리 입력">
-														<input type="text" id="navercash_phone3" name="navercash_phone3" class="inp6" maxlength="4" onkeydown="javascript:chkNum(this);" title="연락처 뒷자리 입력">
-													</p>
-													<p class="t_red">현금 영수증 받을 전화번호를 입력해주세요.</p>
-													<ul class="txt_list mt10">
-														<li>현금 영수증 발급 받을 전화번호 입력</li>
-													</ul>
-												</div>
-												<div id="navercashCon2" class="hide mt20">
-													<p>
-														<input type="text" id="navercash_licensee" name="navercash_licensee" class="inp4" maxlength="10" onkeydown="javascript:chkNum(this);" placeholder="사업자번호 입력" title="사업자번호 입력">
-													</p>
-													<p class="t_red">현금 영수증 받을 사업자 번호를 입력해주세요.</p>
-													<ul class="txt_list mt10">
-														<li>현금 영수증 발급 받을 사업자 번호 입력</li>
-													</ul>
-												</div>
-
-												<div id="navercashCon3" class="hide mt20">
-													<ul class="txt_list mt10">
-														<li>네이버페이 현금 영수증 발급안함.</li>
-													</ul>
-												</div>
-											</div>
-										</td>
-									</tr>
-
-								</tbody>
-							</table>
-							<p class="mt20">
-								<a href="/order/myCart" class="button h30 w80 white btn_back"><span class="gt">&lt;</span> 뒤로</a>
-								<!--a href="javascript:orderLog();" class="button h30 w80 white btn_back"><span class="gt">&lt;</span> 클릭</a> -->
-							</p>
-						</section>
-						<section class="r_order">
-							<div class="pay_box" style="top: 30px;">
-								<h1>주문계산</h1>
-								<div class="store">
+				<div id="tabCon12" class="tab_cont" style="display: none;">
+					<table class="tbl_style mt10 myInfo_form">
+						<caption>새로운 배달주소 입력폼</caption>
+						<colgroup>
+							<col style="width:150px">
+							<col>
+						</colgroup>
+						<tbody>							
+							<tr>
+								<th scope="row"><label for="address">주소</label></th>
+								<td class="t_left">
 									<p>
-										<strong>압구정점</strong>
+										<input type="text" id="cust_haddr" class="inp1" style="width:239px" title="기본주소" readonly="">
+										<input type="text" id="cust_daddr" class="inp3" style="width:239px" title="상세주소 입력" readonly="">
+										<a href="#zipcode" class="button pop_open zip_open">주소찾기<span class="gt">&gt;</span></a>
 									</p>
-									
-										
-									
-									
-								</div>
-								<ul class="p_list">
-									
-										
-											<li><span class="name">멕시칸 하바네로 피자 세트</span>
-											
-													
-													
-														
-															
-															
-																<span class="t_org">L</span>
-															
-														
-													
-												 <span class="num">1</span> <strong>27,900원</strong>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">매장정보</th>
+								<td>
+									<table id="newDeliveryList" class="tbl_style2">
+										<caption>매장정보 - 매장명, 주소, 전화번호, 매장보기 등 확인</caption>
+										<colgroup>
+											<col style="width:50px">
+											<col style="width:120px">
+											<col>
+											<col style="width:120px">
+											<col style="width:80px">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col" class="t_center">선택</th>
+												<th scope="col" class="t_center">매장명</th>
+												<th scope="col" class="t_center">주소</th>
+												<th scope="col" class="t_center">전화번호</th>
+												<th scope="col" class="t_center">매장보기</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!--<tr>
+												 <td>
+													<label>
+														<input name="checkbox" type="checkbox" class="checkbox" name="newDelivery" />
+														<span class="lbl"><span class="blind">선택</span></span>
+													</label>
+												</td>
+												<td>가양점</td>
+												<td class="t_left">서울 강서구 가양동 293-32</td>
+												<td>02-1234-5678</td>
+												<td>
+													<a href="#" class="button h25 w60 white">보기</a>
+												</td> 
+											</tr>-->
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
-												</li>
-										
-									
-
-								</ul>
-								<ul class="dc_pay">
-									<li>주문금액 <strong id="order_list_price">27,900원</strong></li>
-									<li>쿠폰할인 <strong id="order_coupon_desc_price">-0원</strong></li>									<!--<li class="t_org">온라인제품권 <strong>원</strong></li>-->
-								</ul>
-								<div class="price">
-									<b>결제예정금액</b> <strong><span id="order_payment_price">27,900</span>원</strong>
-								</div>
-								<p class="t_center">
-									<a href="javascript:goOrderBefore();" class="button h40 red pay_btn" id="pay_btn">결제하기 <span class="gt">&gt;</span></a>
-								</p>
-							</div>
-						</section>
-						<div class="clear"></div>
-					</div>
-				</form>
-				<input type="hidden" id="item_count" value="1">
-				<input type="hidden" id="f_order_payment_price" value="27900">
-				<input type="hidden" id="f_order_coupon_desc_price" value="">
+				<p class="mt40 t_center">
+					<a href="/demo2/buket" class="button red h45 w170 order_type_btn">주문진행 <span class="gt">&gt;</span></a>
+					<a href="javascript:location.href='/';" class="button h45 w170">취소 <span class="gt">&gt;</span></a>
+				</p>
 			</section>
-
-			<iframe name="IfrmProcDisc" id="IfrmProcDisc" style="width: 0px; height: 0px;" title="빈프레임 내용없음"></iframe>
-			<iframe name="IfrmProc" id="IfrmProc" style="width: 0px; height: 0px;" title="빈프레임 내용없음"></iframe>
 			<!-- //contents -->
 
-		</div>
-		<!-- //container -->
+			<!-- pop_layer -->
+			
+			<!-- 우편번호검색(다음aip 변경후 소스) -->
+			
 
-		
-		<!-- pop layer -->
-		
+
+<!-- pop_layer -->
+<!-- 
+<article id="zipcode" class="pop_layer hide"></article>
+ -->
+<article id="zipcode" class="pop_wrap pop_layer zipcode hide">
+	<h1>주소찾기</h1>			
 	
-<!-- BC 세트 3종 50% 할인 안내 팝업 -->
-<article class="pop_wrap pop_layer pop_newPromotion1802 hide" id="bcSetPopup">
-	<h2>미스터피자</h2>
-	<a href="#" class="btn_close pop_close">닫기</a>
-	<div class="pop_content">
-		<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_pop_newPromotion1803_1.jpg" alt="BC카드 인증 필수!!">
-		<a href="#" class="pop_close"><img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_pop_newPromotion1802_2.jpg" alt="확인"></a>
+	
+	<input type="hidden" id="search_result_gubun" name="search_result_gubun"> <!-- 지번:1, 도로명:2 -->
+	
+	<input type="hidden" id="search_result_code" name="search_result_code">
+	<input type="hidden" id="search_result_sido" name="search_result_sido" value="">
+	<input type="hidden" id="search_result_gugun" name="search_result_gugun" value="">
+	<input type="hidden" id="search_result_dong" name="search_result_dong" value="">
+	<input type="hidden" id="search_result_ri" name="search_result_ri" value="">
+	<input type="hidden" id="search_result_fullname" name="search_result_fullname" value="">
+	<input type="hidden" id="search_result_place_name" name="search_result_place_name">
+	<input type="hidden" id="search_result_bunji" name="search_result_bunji" value="">
+	<input type="hidden" id="search_result_building" name="search_result_building" value="">
+	<input type="hidden" id="search_result_point_x" name="search_result_point_x" value="">
+	<input type="hidden" id="search_result_point_y" name="search_result_point_y" value="">
+	<input type="hidden" id="search_result_add_type" name="search_result_add_type">
+	<input type="hidden" id="search_result_flag" name="search_result_flag">
+	<input type="hidden" id="search_result_convertRoad" name="search_result_convertRoad" value="">	
+
+	<input type="hidden" id="search_result_zipcode" name="search_result_zipcode" value="">
+	<input type="hidden" id="search_result_addr" name="search_result_addr" value="">
+	
+	<input type="hidden" id="search_result_branch_idx" name="search_result_branch_idx" value="">
+	<input type="hidden" id="search_result_branch_title" name="search_result_branch_title" value="">
+	<input type="hidden" id="search_result_branch_zoneidx" name="search_result_branch_zoneidx" value="">
+	<input type="hidden" id="search_result_branch_zonetitle" name="search_result_branch_zonetitle" value="">
+	<input type="hidden" id="search_result_branch_zonetime" name="search_result_branch_zonetime" value="">
+	
+	
+	
+	<div class="pop_cont">
+		<div id="orderDaumZipcode" class="daum_zipcode" style="height: 72px;"><div id="__daum__layer_1" style="position: relative; width: 100%; height: 100%; background-color: rgb(255, 255, 255); z-index: 0; overflow: hidden; min-width: 300px; margin: 0px; padding: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; border: 0px none; margin: 0px; padding: 0px; overflow: hidden; min-width: 300px;"></iframe></div></div> <!-- 다음주소검색 삽입 -->
+
+		<div class="ziplist list" style="display:none">
+			<p class="mt25 mb10">해당하는 주소를 선택해 주세요.</p>
+			<select id="zipcheckList" onchange="getaddr();"></select>
+		</div>
+		<div class="store mt25 mb10"><strong class="t_black">배달가능매장</strong> <span id="storename" class="t_red f14"></span></div>
+		<div class="inp">
+			<input type="text" id="orderAddress1" class="input w_100 readonly full_address" readonly="" title="기본주소" placeholder="기본주소">
+	        <input type="text" id="orderAddress2" class="input w_100 mt5 addressDetail" title="상세주소" placeholder="상세주소">
+		</div>
+		<p class="mt25 t_center">
+			<a href="javascript:void(0);" class="button w115 red addressSubmit">확인<span class="gt">&gt;</span></a>
+			<a href="javascript:void(0);" class="button w115 searchAddrReset">재입력<span class="gt">&gt;</span></a>
+		</p>
+		
+		<p class="cont_tit tit3 mt25 mb10">유의사항</p>
+		<ul class="txt_list">
+			<li>번지/건물명이 없는 경우 배달이 불가능합니다.</li>
+			<li>아파트/빌라 동호수, 사무실 층수, 기타 위치 정보는 상세주소에 입력해 주세요.</li>
+		</ul>
 	</div>
+	<a href="#" class="btn_close pop_close">팝업닫기</a>
 </article>
 
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script><script charset="UTF-8" type="text/javascript" src="//t1.daumcdn.net/postcode/api/core/211103/1635999227231/211103.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e70c28431241e3182f1ec5fc9dd3a6d&amp;libraries=services"></script><script charset="UTF-8" src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.2/kakao.js"></script><script charset="UTF-8" src="https://t1.daumcdn.net/mapjsapi/js/libs/services/1.0.2/services.js"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cx0s7b79nc&amp;submodules=geocoder"></script><script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps-geocoder.js"></script>
+<script>
+var geocoder = new daum.maps.services.Geocoder();
+	
+daumPostcode('orderDaumZipcode','orderAddress1');
+function daumPostcode(mapId,inputId) {
+	initInputDate();
+	$("#orderAddress1").val("");
+	$("#orderAddress2").val("");
+	$("#zipcheckList").empty();
+	$(".ziplist").hide();
+	
+    var mapWrap = document.getElementById(mapId);
+    new daum.Postcode({ 
+        oncomplete: function(data) {
+            // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullAddr = data.address; // 최종 주소 변수
+            var extraAddr = ''; // 조합형 주소 변수
+            
+            // 기본 주소가 도로명 타입일때 조합한다.
+            if(data.addressType === 'R'){
+                //법정동명이 있을 경우 추가한다.
+                if(data.bname !== ''){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있을 경우 추가한다.
+                if(data.buildingName !== ''){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+            }
+            
+            geocoder.addressSearch(data.address, function(results, status) {
+                // 정상적으로 검색이 완료됐으면
+                if (status === daum.maps.services.Status.OK) {
+                    var result = results[0]; //첫번째 결과의 값을 활용
+                    console.log(result);
+                    //console.log(data);
+                    
+                    var custFullAddr = "";
+                    var sido = data.sido;
+                    var sigungu = data.sigungu;
+                    var bname = data.bname; // 법정동/법정리 이름
+                    var bname1 = data.bname1; // 법정리의 읍/면 이름
+                    var bname2 = data.bname2; // 법정동/법정리 이름
+                    var hname = data.hname; // 행정동
+                    var buildingName = data.buildingName; // 건물명
+                    var roadAddress = data.roadAddress;
+                    var jibunAddress = data.jibunAddress;
+                    var roadname = data.roadname;
+
+                    var userSelectedType = data.userSelectedType;
+
+                    var rname = "";
+                    var jibun = "";
+                    var rnameDetail = "";
+                    var jibunDetail = "";
+                    var query = data.query;
+
+                    rname = roadAddress.replace(sido, "").replace(sigungu, "").replace(" ", "").replace(" ", "");
+                    if(bname1 != ""){
+                    	rname = rname.replace(bname1, "").replace(" ", "");
+                    }
+                    
+                    jibun = jibunAddress.replace(sido, "").replace(sigungu, "").replace(" ", "").replace(" ", "");
+                    if(bname1 != ""){
+                    	jibun = jibun.replace(bname1, "").replace(" ", "");
+                    }
+
+                    if (hname !== "") {
+                       rname += "(" + hname + ")";
+                       bname += "(" + hname + ")";
+                    }
+
+                    jibunDetail = jibun.replace(bname2, "").replace(" ", "");
+                    rnameDetail = rname.replace(roadname, "").replace(" ", "");
+                    	
+                    var re = /[`'\"\\(\=]/gi;
+
+                    if (buildingName != "") {
+                    	buildingName = buildingName.replace(re, " ");
+                    }
+                    
+        			//console.log("roadAddress : " + roadAddress + "\n" + "jibunAddress: " + jibunAddress + "\n" + "rname: " + rname + "\n" + "jibun: " + jibun + "\n" + "bname : " + bname + "\n" + "bname1 : " + bname1);
+        			//console.log("bname2 : " + bname2 + "\n"+ "buildingName : " + buildingName + "\n"+ "jibunDetail : " + jibunDetail + "\n"+ "rnameDetail : " + rnameDetail );
+                    
+        			initInputDate();
+        			
+        			$("#search_result_gubun").val(2);
+					$("#search_result_sido").val(sido);
+					$("#search_result_gugun").val(sigungu);
+					
+					/*도로명주소데이터가 없을경우 지번우선등록*/
+					if(roadAddress == ""){
+						if(bname1 != ""){
+							$("#search_result_dong").val(bname1);
+							$("#search_result_ri").val(bname2);
+						}else{
+							$("#search_result_dong").val(bname);
+							$("#search_result_ri").val();
+						}
+						$("#search_result_bunji").val(jibunDetail);
+					}else{
+						$("#search_result_dong").val(roadname);
+						$("#search_result_bunji").val(rnameDetail);
+						if(bname1 != ""){
+							$("#search_result_convertRoad").val(bname1+" "+jibun);
+						}else{
+							$("#search_result_convertRoad").val(jibun);
+						}
+						
+					}
+					
+					$("#search_result_building").val(buildingName);
+					
+					$("#search_result_point_x").val(result.x);
+            	    $("#search_result_point_y").val(result.y);
+            	    
+					$("#storename").empty();
+					
+					if(roadAddress == ""){
+						custFullAddr = jibunAddress+" "+buildingName ;
+						$("#search_result_fullname").val(jibunAddress+" "+buildingName);
+						$("#search_result_addr").val(jibunAddress+" "+buildingName);
+					}else{
+						custFullAddr = roadAddress +" "+buildingName+" / "+jibun;
+						$("#search_result_fullname").val(roadAddress +" "+buildingName);
+						$("#search_result_addr").val(roadAddress +" "+buildingName);
+					}
+					
+					
+					
+					
+					document.getElementById(inputId).value = custFullAddr;
+					
+					getXY(data.jibunAddress, userSelectedType, query, data.zonecode, buildingName);
+					
+                    
+                }
+            });
+        },
+        // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+        onresize : function(size) {
+        	console.log(size);
+        	mapWrap.style.height = size.height+'px';
+        },      
+        width : '100%',
+        height : '100%'
+    }).embed(mapWrap, {
+    	//기본값 true, 선택 후 자동닫힘 방지
+        autoClose: false
+    });
+    
+}
+
+function getXY(daumaddr, selecttype, query, zonecode, buildingName){
+	if (daumaddr == "") {
+		if (selecttype == "R") {
+			$("#search_result_branch_idx").val("");
+			$("#search_result_branch_title").val("");
+			$("#search_result_branch_zoneidx").val("");
+			$("#search_result_branch_zonetitle").val("");
+			$("#search_result_branch_zonetime").val("");
+			
+			initInputDate();
+			$("#orderAddress1").val("");
+			$("#orderAddress2").val("");
+			$("#zipcheckList").empty();
+			$(".ziplist").hide();
+			
+			alert("고객님 죄송합니다. \n해당 도로명 주소로는 매장 연결이 어렵습니다. \n* 지번 주소 \"더보기\"중 한개를 선택 부탁드립니다.");
+			return;
+		}else{
+			$("#search_result_branch_idx").val("");
+			$("#search_result_branch_title").val("");
+			$("#search_result_branch_zoneidx").val("");
+			$("#search_result_branch_zonetitle").val("");
+			$("#search_result_branch_zonetime").val("");
+			
+			initInputDate();
+			$("#orderAddress1").val("");
+			$("#orderAddress2").val("");
+			$("#zipcheckList").empty();
+			$(".ziplist").hide();
+			
+			alert("검색된 주소가 없습니다.");
+			return;
+		}
+	}
+
+	getSearchDupSection(zonecode, buildingName);
+	
+}
+
+/* 중복상권 검색로직 */
+function getSearchDupSection(zip_code, buildingName){
+	$(".ziplist").hide();
+	$("#zipcheckList").empty();
+	
+	var params = {
+			zipcode : zip_code,	
+	}
+	
+	$.ajax({
+		type: 'POST',
+		url : "/common/zip_code_check.json",
+		data : params,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "json",
+		async : false,
+		success: function(data){
+			//console.log(data);
+			if (data != null) {
+				if(data.length > 0){
+					var htmlString = "";
+					if(buildingName == "목동신시가지아파트7단지" || buildingName == "서울대학교" || buildingName == "의정부 롯데캐슬 골드파크 2단지"){
+						for(var i = 0; i < data.length; i++){
+							
+							htmlString = htmlString + '<option value="'+data[i].x+'|'+data[i].y+'" >'+data[i].address_name+'</option>';
+						}
+						$("#search_result_branch_idx").val("");
+						$("#search_result_branch_title").val("");
+						$("#search_result_branch_zoneidx").val("");
+						$("#search_result_branch_zonetitle").val("");
+						$("#search_result_branch_zonetime").val("");
+						
+						$("#zipcheckList").append("<option value=''>주소를 선택해주세요</option>" + htmlString);
+						$(".ziplist").show();
+					}else{
+						
+						$("#search_result_branch_idx").val("");
+						$("#search_result_branch_title").val("");
+						$("#search_result_branch_zoneidx").val("");
+						$("#search_result_branch_zonetitle").val("");
+						$("#search_result_branch_zonetime").val("");
+						
+						$(".ziplist").hide();
+						$("#zipcheckList").empty();
+						
+						getlist2();
+					}
+					
+				}else{
+					getlist2();
+				}
+				
+			}else if (typeof data.length == "undefined") {
+				alert('통신 환경이 불안정 합니다.');
+			} else if (data.length == 0) {
+				
+			}
+		}
+	});
+	
+}
+
+function getaddr(){
+	var addrSelect = document.getElementById("zipcheckList");
+	$("#storename").empty();
+	
+	// 선택한 셀렉트박스 옵션의 value 값 가져오기
+	var selectedValue = addrSelect.options[addrSelect.selectedIndex].value;
+	
+	var pointvalue = selectedValue.split("|");
+	//console.log(pointvalue[0]+" / "+pointvalue[1]);
+	
+	var x = pointvalue[0];
+    var y = pointvalue[1];
+    
+    var oPoint = new naver.maps.LatLng( y, x);
+	//var newpoint = oPoint.toTM128();
+	var utmk = naver.maps.TransCoord.fromLatLngToUTMK(oPoint); // 위/경도 -> UTMK
+    var newpoint = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+   
+    var xpoint = newpoint.x;
+    var ypoint = newpoint.y;
+	
+	//console.log("xpoint = "+ xpoint +", ypoint = " + ypoint);
+	$("#search_result_point_x").val(xpoint);
+	$("#search_result_point_y").val(ypoint);
+	
+	var selectedBuildingName = $("#zipcheckList option:checked").text();
+	$("#search_result_building").val(selectedBuildingName);
+	
+	//좌표로 매장찾기
+	var mode = 0;
+	if(popCon == "#zipcode")
+		mode = 1; 
+	searchBranch(xpoint.toString(), ypoint.toString(), mode);
+	
+}
+
+function getlist2(){
+	var x = $("#search_result_point_x").val();
+	var y = $("#search_result_point_y").val();
+	
+	if( x == "" || y == ""){
+		alert("검색된 매장이 없습니다.");
+		return;
+	}
+	
+	var oPoint = new naver.maps.LatLng( y, x);
+	//var newpoint = oPoint.toTM128();
+	var utmk = naver.maps.TransCoord.fromLatLngToUTMK(oPoint); // 위/경도 -> UTMK
+    var newpoint = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+   
+    var xpoint = newpoint.x;
+    var ypoint = newpoint.y;
+	
+	console.log("xpoint = "+ xpoint +", ypoint = " + ypoint);
+	$("#search_result_point_x").val(xpoint);
+	$("#search_result_point_y").val(ypoint);
+	//좌표로 매장찾기
+	var mode = 0;
+	if(popCon == "#zipcode")
+		mode = 1; 
+	searchBranch(xpoint.toString(), ypoint.toString(), mode);
+}
+
+function initInputDate(){
+	$("#search_result_sido").val("");
+	$("#search_result_gugun").val("");
+	$("#search_result_dong").val("");
+	$("#search_result_ri").val("");
+	$("#search_result_bunji").val("");
+	$("#search_result_convertRoad").val("");
+	$("#search_result_building").val("");
+	$("#search_result_point_x").val("");
+    $("#search_result_point_y").val("");
+    $("#search_result_fullname").val("");
+	$("#search_result_addr").val("");
+	
+	$("#search_result_branch_idx").val("");
+	$("#search_result_branch_title").val("");
+	$("#search_result_branch_zoneidx").val("");
+	$("#search_result_branch_zonetitle").val("");
+	$("#search_result_branch_zonetime").val("");
+	
+	$("#storename").empty();
+	
+}
+</script>
+
+
+			<!-- 다음api 변경전 소스 -->
+			
+			
+			<!-- <article id="zipcode" class="pop_layer hide"><iframe src="../popup/pop_zipcode.html" frameborder="0" title="우편번호 검색"></iframe></article> -->
+			<!-- //우편번호검색 -->
+			
+			<a href="#popup" id="pop" class="pop_open"><span class="blind">주소지 삭제확인</span></a>
+			
+			<article id="popup" class="pop_wrap pop_layer hide">
+				<h1>삭제</h1>
+				<div class="pop_cont">
+					<p class="t_center bold">주소지를 삭제하시겠습니까?</p>
+					<p class="t_center mt20">
+						<a href="javascript:delMyDeliveryInfo();" class="button btn_move w100 h30 white">확인<span class="gt">&gt;</span></a>
+						<a href="#" class="button btn_move w100 h30 white pop_close">취소<span class="gt">&gt;</span></a>
+					</p>
+				</div>
+				<a href="#" class="btn_close pop_close">닫기</a>
+			</article>
+			
+			<article id="popMyinfo" class="pop_wrap pop_layer hide">
+				<h1>기본배송지설정</h1>
+				<div class="pop_cont">
+					<p class="t_center bold">기본주소 변경 시 회원정보 내 주소도 변경됩니다.</p>
+					<p class="t_center mt20">
+						<a href="javascript:updDefaultDelivery(2);" class="button btn_move w100 h30 white">변경<span class="gt">&gt;</span></a>
+						<a href="#" class="button btn_move w100 h30 white pop_close">취소<span class="gt">&gt;</span></a>
+					</p>
+				</div>
+				<a href="#" class="btn_close pop_close">닫기</a>
+			</article>
+			<!-- //pop_layer -->
+		</div>
+		</form>
+		<!-- //container -->
+		
+		<!-- pop layer -->
 		
 
 
@@ -869,7 +936,7 @@
 				<p class="mt20 naver_login_btn_wrap">
 					<a href="/login_join/findID" class="button grad btn_move w120 f12">아이디/비밀번호찾기</a>
 					<a href="/login_join/join" class="button grad btn_move w80 f12">회원가입하기</a>
-					<span id="naver_id_login_popup"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=token&amp;client_id=HrPgLEnk0VGTGSOYakKo&amp;redirect_uri=https%3A%2F%2Fwww.mrpizza.co.kr%2Flogin_join%2FNaverResult&amp;state=4aac9cf4-e031-4591-95f5-3cddf62fbd4a" onclick="window.open(this.href, 'naverloginpop', 'titlebar=1, resizable=1, scrollbars=yes, width=600, height=550'); return false" id="naver_id_login_anchor" class="naver_btn"><img src="http://static.nid.naver.com/oauth/big_g.PNG" border="0" title="네이버 아이디로 로그인" width="152.625px" height="33px"></a> </span> <!-- 네이버 로그인 -->
+					<span id="naver_id_login_popup"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=token&amp;client_id=HrPgLEnk0VGTGSOYakKo&amp;redirect_uri=https%3A%2F%2Fwww.mrpizza.co.kr%2Flogin_join%2FNaverResult&amp;state=14d7a1f9-e0e4-4f18-a89f-4e32674df46c" onclick="window.open(this.href, 'naverloginpop', 'titlebar=1, resizable=1, scrollbars=yes, width=600, height=550'); return false" id="naver_id_login_anchor" class="naver_btn"><img src="http://static.nid.naver.com/oauth/big_g.PNG" border="0" title="네이버 아이디로 로그인" width="152.625px" height="33px"></a> </span> <!-- 네이버 로그인 -->
 					<!-- 페이코 버튼 노출 영역 -->
 					<a href="javascript:order();" class="payco_login_btn">페이코 로그인</a>
 					<!-- // 페이코 버튼 노출 영역 -->
@@ -967,6 +1034,124 @@
 		
 
 
+
+<!-- pop_layer -->
+<article id="pop_zipGuide" class="pop_wrap pop_layer hide">
+	<h1>주소 등록 안내</h1>			
+	<div class="pop_cont pop_scroll">
+		<ul class="tabmenu2 tabMotion">
+			<li class="on"><a href="#zipGuide1"><span>지번주소 안내</span></a></li>
+			<li><a href="#zipGuide2"><span>도로명주소안내</span></a></li>
+		</ul>
+		<div id="zipGuide1" class="tab_cont" style="display: block;">
+			<ul class="zipGuide_list">
+				<li>
+					<figure>
+						<figcaption>1. 주소찾기 클릭</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide01.jpg" alt="주소찾기 클릭 설명 화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>2. 지번주소 선택 &gt; '동 읍 면 입력'란에 동명 입력 후 [동검색] 버튼<br> 클릭 </figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide02.jpg" alt="주소찾기 동 입력란에 동명 입력후 동검색버튼 클릭 설명 화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>3. 검색 결과에서 해당하는 행정구역 선택</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide03.jpg" alt="검색 결과에서 해당하는 행정구역 선택 설명화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>4. '번지 또는 건물명 입력'란에 번지를 입력하신 경우[지번검색] / <br>건물명을 입력하신 경우 [건물명 검색] 버튼 클릭</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide04.jpg" alt="번지 또는 건물명 입력란에 번지를 입력후 건물명 검색 버튼 클릭 설명 화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>5. 검색 결과에서 지번 또는 건물명 선택</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide05.jpg" alt="검색 결과에서 지번 또는 건물명 선택 설명화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>6. '상세주소' 입력란에 아파트/빌라 동호수, 사무실 층수, 기타 위치 정보 입력 후 확인</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide06.jpg" alt="입력란에 아파트/빌라 동호수, 사무실 층수, 기타 위치 정보 입력 후 확인 설명화면">
+					</figure>
+				</li>
+			</ul>
+		</div>
+		<div id="zipGuide2" class="tab_cont" style="display: none;">
+			<ul class="zipGuide_list">
+				<li>
+					<figure>
+						<figcaption>1. 주소찾기 클릭</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide11.jpg" alt=" 주소찾기 클릭 설명 화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>2. 도로명주소 선택 &gt; '도로명 입력'란에 입력 후 [도로명 검색] 버튼 클릭</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide12.jpg" alt="도로명주소 선택 도로명 입력 란에 입력후 도로명 검색버튼 클릭 설명화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>3. 검색 결과에서 해당하는 도로명 선택</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide13.jpg" alt="검색 결과에서 해당하는 도로명 선택 설명화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>4. '건물번호 입력'란에 건물번호 숫자 입력 하신 후 [건물번호 검색] 버튼 클릭</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide14.jpg" alt="번지 또는 건물명 입력란에 번지를 입력후 건물명 검색 버튼 클릭 설명 화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>5. 검색 결과에서 건물번호를 선택</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide15.jpg" alt="검색 결과에서 건물번호를 선택 설명화면">
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>6. '상세주소' 입력란에 아파트/빌라 동호수, 사무실 층수, 기타 위치 정보 입력 후 확인</figcaption>
+						<img src="//cdn.mrpizza.co.kr/2014_resources/images/popup/img_zipGuide16.jpg" alt=" 입력란에 아파트/빌라 동호수, 사무실 층수, 기타 위치 정보 입력 후 확인 클릭 설명화면">
+					</figure>
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+	<a href="#" class="btn_close pop_close">팝업닫기</a>
+</article>
+<!-- //pop_layer -->
+		
+		<a href="#popUserCheck" id="userAuthChk" class="pop_open"><span class="blind">본인인증 후 할인쿠폰 안내 팝업</span></a>
+		
+
+
+<article id="popUserCheck" class="pop_wrap pop_layer hide" style="margin-top: -164px; display: none;">
+	<h1>본인인증</h1>			
+	<div class="pop_cont">
+		<p class="f16"><strong>본인 인증하시고 할인쿠폰 받으세요!</strong></p>
+
+		<p class="mt20 f14">본인 인증하시면 각종 제휴 할인을 포함한 미스터피자의 서비스를 보다 편리하게 이용하실 수 있습니다.</p> 
+		<p class="f14"><strong class="t_red">본인 인증 후에 마케팅 정보 수신 동의 (이메일, SMS, 주소(전단) 모두 수신 동의)를 하시면, 프리미엄 피자 20% 할인 쿠폰을 드립니다.</strong></p>
+		<p class="mt20 f14">본인인증은 [마이페이지] &gt; [정보수정]에서 가능합니다.</p>
+
+		<p class="mt20 t_center"><a href="/mypage/myInfo_step1" class="button grad btn_move">본인인증하기 <span class="gt">&gt;</span></a></p> 		
+	</div>
+	<a href="#" class="btn_close pop_close">팝업닫기</a>
+</article>		
+		<!-- /pop layer -->
+		
+		<!-- sizeup 팝업 -->
+		
+
+
 <article id="popSizeup" class="pop_wrap pop_layer img_layer hide" style="width:779px;margin-left:-390px;">
 	<p><img src="//cdn.mrpizza.co.kr/2014_resources/images/event/sizeup/img_sizeup1.jpg" alt="창립 25주년 기념"></p>
 	<p class="t_center">
@@ -1000,10 +1185,85 @@
 	</div>
 	<a href="#" class="btn_close pop_close">팝업닫기</a>
 </article>
-		<!-- /pop layer -->
-
+		<!-- //sizeup 팝업 -->
+		
 		<!-- quick -->
+		<%@include file="../common/side.jsp" %>
+		</li>
+		<li class="inBox">
+			<section class="quick_box">
+				<h1 class="tit1">
+					
+					
+							이전 주문 그대로 주문하기
+						 
+						
+								
+				</h1>
+				<ul class="tabmenu noline tabMotion mt20">
+					<li class="on"><a href="#q_tab01" title="배달주문"><span>배달주문</span></a></li>
+					<li><a href="#q_tab02" title="방문포장"><span>방문포장</span></a></li>
+				</ul>
+				<div id="q_tab01" class="tab_cont" style="display: block;">
+					
+					
+					<ul class="q_list">
+						<li>이전 주문 내역이 없습니다.</li>
+					</ul>
+					
+				</div>
 
+				<div id="q_tab02" class="tab_cont" style="display: none;">
+					
+					
+					<ul class="q_list">
+						<li>이전 주문 내역이 없습니다.</li>
+					</ul>
+					
+				</div>
+				<p class="mt10 t_center">
+					<a href="#" class="button w180 q_close" title="창닫기">창닫기 <span class="gt">&gt;</span></a>
+					<!--<a href="#" class="button red w180">전체메뉴 보기 <span class="gt">&gt;</span></a>-->
+				</p>
+			</section>
+		</li>
+	</ul>
+</section>
+
+<script type="text/javascript">
+// 상단 장바구니 개수와 맞춤
+$(".top_cart_num").html($(".cart_num").text());
+
+	if($('#menuFlag').val() == 'quick_cart') {
+		$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		topBtn();
+		tapMotion();
+		formStyle();
+		//slideCtrl();
+	} else if($('#menuFlag').val() == 'quick_cart_non_toggle') {
+		$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		topBtn();
+		tapMotion();
+		formStyle();
+	} else if($('#menuFlag').val() == 'quick_order') {
+		$('.quick_order').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_order').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		tapMotion();
+	} else if($('#menuFlag').val() == 'quick_good') {
+		$('.quick_good').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_good').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		tapMotion();
+	}
+</script>
+
+
+		</section>
 		<!-- /quick -->
 
 		<!-- footer -->
@@ -1146,8 +1406,9 @@
 <!-- //pop_layer -->
 
 <!-- // topping -->
+<%@include file="../common/footer.jsp" %>
 
-<%@include file="common/footer.jsp" %>
+
 <!-- popup -->
 <article id="popGroupOrder" class="pop_wrap pop_layer hide">
 	<h1>미스터피자</h1>			
@@ -1492,106 +1753,18 @@ adn_panel_param.push([{
 
 
 		<!-- //footer -->
-
+		
 		<!-- 메조트래킹태그 -->
-		<script src="https://vtag5.midas-i.com/vat-tag?cmp_no=205&amp;depth=9"></script>
+		<script src="https://vtag5.midas-i.com/vat-tag?cmp_no=205&amp;depth=6"></script>		
 		<!-- 메조트래킹태그 -->
+		
+		<script language="javascript" src="https://i13.icast-ad.com/track?ccd=4113&amp;mcd=01040601&amp;pcd=9238"></script>
 	</div>
 	<!-- //wrap -->
-	<!-- 퍼블리셔 임시스크립트: 옴겨주세요 -->
-<script>
-	var popOpenFunc = function(view) {
-		
-		var vCont = view;
-		var mh =  $(vCont).outerHeight();
-	   	$('#contents').after('<span class=bgLayer></span>');
-	   	$('.bgLayer').fadeTo('fast', 0.6, function() {
-	       $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
-	           $(this).attr('tabIndex',0).focus();
-	       });
+	<!-- 미스터피자 미디어 큐브 태그 -->
+	<img src="//pixel.mathtag.com/event/img?mt_id=763274&amp;mt_adid=141063&amp;v1=&amp;v2=&amp;v3=&amp;s1=&amp;s2=&amp;s3=" width="1" height="1" alt="">
 	
-	       $(vCont).find('.pop_close').click(function() {
-	           $('.bgLayer').remove();               
-				$(this).parents('.pop_layer').hide(300,function(){
-					$(this).removeAttr('tabindex');
-				});
-				$(this).focus();
-				return false;
-	       });
-	   });
-	}
-	$(function(){
-		$('input[name=payGroup]').change(function(){
-			var _val = $(this).val();					
-			if(_val == "6"){
-				$('#naverpaycashBox').show().siblings('div').hide();
-				$('.payco_info').hide();
-			}else if(_val == "7"){
-				$('.payco_info').show();
-				$('#naverpaycashBox').hide().siblings('div').show();
-			}else{
-				$('input[name=navercash_user]').attr('checked', false);
-				$('#naverpaycashBox').hide().siblings('div').show();
-				$('.payco_info').hide();
-				$('#navercash_phone1').val("");
-				$('#navercash_phone2').val("");
-				$('#navercash_phone3').val("");
-				$('#navercash_licensee').val("");
-				$('#navercashCon1').hide("");
-				$('#navercashCon2').hide("");
-			}											
-		});
-		$('input[name=navercash_user]').change(function(){
-			var _val = $(this).val();											
-			$('#'+ _val).show().siblings('div').hide();
-		});
-	});
-	/*
-	function orderLog(){
-
-		order_type = $("#order_type").val(); 
-		
-		if(order_type == "3"){ phone = $("#gift_from_tel1").val()+"-"+$("#gift_from_tel2").val()+"-"+$("#gift_from_tel3").val(); }else{ phone = $("#view_delivery_phone1").val()+"-"+$("#view_delivery_phone2").val()+"-"+$("#view_delivery_phone3").val();	}						
-		full_address =  $("#full_address").val();
-		payGroup = $('input[name=payGroup]:checked').val();
-		if(payGroup == "2"){ payGroupNm ="신용카드"; }else if (payGroup == "3"){ payGroupNm ="휴대폰 결제"; }else if(payGroup == "5"){ payGroupNm ="카카오페이"; }else if(payGroup == "6"){ payGroupNm ="네이버페이"; }else if(payGroup == "7"){ payGroupNm ="페이코"; }else{ payGroupNm = "선택안함" }
-		coupon_type = $("#coupon_type").val();
-		cust_lic = $("#cust_lic").val();
-		card_gubun = $("#card_gubun").val();
-		card_yymm = $("#card_yymm").val();
-		mode = $("#mode").val();
-		gopaymethod = $("#gopaymethod").val();
-		check_url = $("#check_url").val();
-		apply_url = $("#apply_url").val();
-		sms_guest_flag = $("#sms_guest_flag").val();
-		
-		
-		alert($("#coupon_type").val());
-	}
-	*/
-</script>
-
-<!-- Event snippet for 주문하기_클릭 conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-763537271/YG9KCPb595UBEPfOiuwC',
-      'transaction_id': '',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
 
 
-
-
-
-<div id="adn_container" style="display:none"></div><iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="about:blank"></iframe><div id="adn_panel_wrap" class="closing_bg" style="display: none;"></div></body>
+<div id="adn_container" style="display:none"></div><iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="about:blank"></iframe><div id="adn_panel_wrap" class="closing_bg" style="display: none;"></div><iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE" style="display: none;"></iframe></body>
 </html>

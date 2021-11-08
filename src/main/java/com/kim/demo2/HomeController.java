@@ -55,15 +55,15 @@ public class HomeController {
 		maps.add(map);
 		maps.add(map2);
 		model.addAttribute("maps",maps);
-		return "buket";
+		return "/orderPages/buket";
 	}
 	@RequestMapping(value = "/pay", method = RequestMethod.GET)
 	public String goPay(HttpServletRequest request,HttpServletResponse response) {
-		return "pay";
+		return "/orderPages/pay";
 	}
 	@RequestMapping(value = "/address", method = RequestMethod.GET)
 	public String goAddress(HttpServletRequest request,HttpServletResponse response) {
-		return "address";
+		return "/orderPages/address";
 	}
 	
 	

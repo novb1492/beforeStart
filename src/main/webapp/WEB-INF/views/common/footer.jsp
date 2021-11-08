@@ -4,19 +4,12 @@
 	<div class="line_area">
 		<div class="inner_renew">
 			<ul class="link_list">
-				<li><a href="/login_join/rules">개인정보취급방침</a></li>
-				<li><a href="/login_join/rules">이용약관</a></li>
-				<li><a href="/brand/franchise">가족점모집</a></li>
-				<li><a href="/cscenter/cscenter_main">고객만족센터</a></li>
-				<li><a href="#popGroupOrder" class="pop_open">단체주문</a></li>
+				<li><a href="#">개인정보취급방침</a></li>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">가족점모집</a></li>
+				<li><a href="#">고객만족센터</a></li>
+				<li><a href="#" class="pop_open">단체주문</a></li>
 			</ul>
-			<div class="lang_wrap">
-				<button type="button">Korean</button>
-				<ul class="lang_list">
-					<li><a href="http://usmpk.mrpizza.co.kr/en/" target="_blank">English</a></li>
-					<li><a href="http://chmpk.mrpizza.co.kr/ch/" target="_blank">Chinese</a></li>
-				</ul>
-			</div>
 		</div>
 	</div>
 	<div class="inner_renew">
