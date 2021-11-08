@@ -28,9 +28,15 @@ public class controller {
 	public String goBuket(HttpServletRequest request,HttpServletResponse response,Model model) {
 		logger.info("goBuket");
 		List<Map<String, Object>>maps=buketDao.findByEmail("kim@kim.com");
+		int price=20000;
+		int totalPrice=0;
 		for(Map<String, Object>map:maps) {
-			map.put("price", 20000);
+			int countAndPrice=price*Integer.parseInt(map.get("BCOUNT").toString());
+			map.put("img", "http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2021630152735817.jpg");
+			map.put("price", countAndPrice);
+			totalPrice+=countAndPrice;
 		}
+		model.addAttribute("totalPrice", totalPrice);
 		model.addAttribute("maps",maps);
 		return "/orderPages/buket";
 	}

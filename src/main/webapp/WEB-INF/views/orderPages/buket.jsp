@@ -6,6 +6,7 @@
 <%@ include file="../common/header.jsp" %>
 <% 
 List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("maps");
+int totalPrice=(int)request.getAttribute("totalPrice");
 %>
 
 <html>
@@ -13,6 +14,7 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 	<title>Home</title>
 </head>
 <body style="">
+<input type="button" value="test" onclick="requestToServer('/demo2/test',null)" >
 <!-- WIDERPLANET  SCRIPT START 2017.7.13 -->
 <div id="wp_tg_cts" style="display:none;"><script id="wp_tag_script_1636101767469" src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1go6pcf-1mgh2k6-3-1&amp;ty=Cart&amp;ti=20768&amp;hcuid=e8fbc609ce282e7a4c04e8c7446c56b07414abba&amp;device=web&amp;charset=UTF-8&amp;tc=1636101767469&amp;ref=https%3A%2F%2Fwww.mrpizza.co.kr%2Forder%2FdeliveryOrder&amp;loc=https%3A%2F%2Fwww.mrpizza.co.kr%2Forder%2FmyCart"></script><script id="wp_log_script_1636101767971" src="https://pixel.mathtag.com/sync/js?exsync=https%3A%2F%2Fastg.widerplanet.com%2Fdelivery%2Fwpp.php%3Fmmuuid%3D%5BMM_UUID%5D"></script></div>
 
@@ -266,7 +268,7 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 								</label>
 							</td>
 							<td>
-								<a class="img" href="javascript:void(0);"><img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2021630152735817.jpg" alt="임시이미지"></a>
+								<img src="<%=map.get("img") %>" class="img" alt="임시이미지">
 							</td>
 							<td class="t_left">
 								<p><strong class="f16"><%=map.get("BPIZZANAME") %></strong></p>
@@ -290,7 +292,10 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 								
 								<span class="ui-spinner ui-widget ui-widget-content ui-corner-all" style="height: 35px;">
 									<input class="cartSpinner ui-spinner-input" type="text" value="<%=map.get("BCOUNT") %>" title="수량입력" style="width:46px;text-align:center;" readonly="" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1" autocomplete="off" role="spinbutton">
-										<a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only cartPlus" tabindex="-1" role="button" aria-disabled="false"><i class="icon icon-plus"></i></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only cartMinus" tabindex="-1" role="button" aria-disabled="false">
+										<a onclick="#" class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only cartPlus" tabindex="-1" role="button" aria-disabled="false">
+											<i class="icon icon-plus"></i>
+										</a>
+										<a onclick="changeCount(-1)" class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only cartMinus" tabindex="-1" role="button" aria-disabled="false">
 										<i class="icon icon-minus"></i>
 										</a>
 								</span>
@@ -300,13 +305,15 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 							</tbody>
 					<% 	}
 						%>
+				
 
 		</table>
 		<p class="mt10">
-			<a href="#" onclick="checkAll()" class="button h30 w115 white">제품전체선택</a>
+			<a href="#" name="ch" onclick="checkAll()" class="button h30 w115 white">제품전체선택</a>
 			<a href="/menu/premium" class="button h30 w115 white">계속 주문하기</a>
 			<a href="#popup" class="button h30 w115 delProduct_pop_open">선택제품삭제 <span class="ic_x"></span></a>
 		</p>
+
 		<ul class="txt_list mt40">
 			<!-- <li>장바구니 저장기간은 5일입니다. 5일이 초과된 제품은 자동으로 삭제됩니다.</li> -->
 			<li>장바구니 제품 중 할인 행사 종료된 경우 해당 가격으로 주문이 불가합니다.</li>
@@ -326,34 +333,34 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 			<div class="store">
 				<p><strong>압구정점</strong></p>
 				
-					<p><strong>예상시간 <span class="t_red"><b>30</b>분</span></strong></p>
+				
 				
 				
 			</div>
 			<ul class="p_list">
+				<%for(Map<String,Object>map:maps){
+					%>
 				
-					
 				<li>
-					<span class="name">멕시칸 하바네로 피자 세트</span>
+					<span class="name"><%=map.get("BPIZZANAME") %></span>
 					
 					
 						
 						
+						
+								
+									<span class="t_org"><%=map.get("BPIZZASIZE") %></span>
+								
 							
-								
-								
-									<span class="t_org">L</span>
-								
-							
 						
 					
 					
-					<span class="num">1</span>
-					<strong>27,900원</strong>
+					<span class="num"><%=map.get("BCOUNT") %></span>
+					<strong><%=map.get("price") %></strong>
 					
 					
 				</li>
-					
+				<%}%>
 				
 				<!--
 				<li>
@@ -371,13 +378,13 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 				-->
 			</ul>
 			<ul class="dc_pay">
-				<li>주문금액 <strong>27,900원</strong></li>
+				<li>주문금액 <strong><%=totalPrice %></strong></li>
 				<li>쿠폰할인 <strong>-0원</strong></li>
 				<!--<li class="t_org">온라인제품권 <strong>원</strong></li>-->
 			</ul>
 			<div class="price">
 				<b>결제예정금액</b>
-				<strong><span>27,900</span>원</strong>
+				<strong><span><%=totalPrice %></span>원</strong>
 			</div>
 			<p class="t_center">
 				<a href="/demo2/pay"  class="button h40 red">할인선택 <span class="gt">&gt;</span></a>
@@ -423,51 +430,8 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 		
 		
 
-<script type="text/javascript">
-	function PromotionTypeChk(type){ //type 노출되는 항목갯수
-		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
-		console.log("eventchk400 = "+eventchk400);
-		if(typeof eventchk400 === "undefined"){
-			alert("피자만 구매하기 또는 증정품 중 한가지를 선택해 주세요.");
-			return;			
-		}else if(eventchk400 == "other"){
-			//일반 진행
-			chkSelectionPromotion('other');
-			return;
-		}else if(eventchk400 == "PM0470_Large_1"){
-			setCartDataFreeMenu('sideproductItem_400_Large_1', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]오븐미트스파게티+베이크윙 8조각은 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Large").hide();
-			$(".bgLayer").hide();				
-		}
-		else if(eventchk400 == "PM0470_Regular_2"){
-			setCartDataFreeMenu('sideproductItem_400_Regular_2', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 미피떡볶이, 홈샐러드(9구) 중 한가지만 선택하여 주문 가능합니다.\n미피떡볶이는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Regular").hide();
-			$(".bgLayer").hide();	
-		}
-		else if(eventchk400 == "PM0470_Regular_3"){
-			setCartDataFreeMenu('sideproductItem_400_Regular_3', '', '');	
-			/*팝업 닫기*/
-			alert("[무료]증정품은 미피떡볶이, 홈샐러드(9구) 중 한가지만 선택하여 주문 가능합니다.\n홈샐러드(9구)는 피자 수량만큼 변경하실 수 있습니다.");
-			$("#pop_order_event_Regular").hide();
-			$(".bgLayer").hide();	
-		}
-	}	
-	
-</script>	
 
-<style>
-.pop_newPromotion1906 .select_item label {width:233px}
-.pop_newPromotion210219.promotion_L .select_item label.item0 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_1_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item0 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_1_on.jpg') no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item2 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_2_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item2 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210219_item_2_on.jpg') no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item3 .lbl{background:url(//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210413_item_3_off.jpg) no-repeat;}
-.pop_newPromotion210219.promotion_L .select_item label.item3 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2014_resources/images/popup/new_menu_imgs/l_20210413_item_3_on.jpg') no-repeat;}
-</style>
+
 
 <!-- 프리미엄 9종 L 주문시 -->
 <article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion210219 promotion_L hide" id="pop_order_event_Large">
