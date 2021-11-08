@@ -261,7 +261,7 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 								<tr id="cart_spin">						
 							<td rowspan="2">
 								<label>
-									<input type="checkbox" id="cart_item" name="cart_item" class="checkbox" value="<%=map.get("num")%>">
+									<input type="checkbox" id="cart_item" name="cart_item" class="checkbox" value="<%=map.get("BID")%>">
 									<span class="lbl"><span class="blind">선택</span></span>
 								</label>
 							</td>
@@ -269,11 +269,11 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 								<a class="img" href="javascript:void(0);"><img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2021630152735817.jpg" alt="임시이미지"></a>
 							</td>
 							<td class="t_left">
-								<p><strong class="f16"><%=map.get("name") %></strong></p>
+								<p><strong class="f16"><%=map.get("BPIZZANAME") %></strong></p>
 								
-									<p>사이즈 :<%=map.get("size") %></p>
+									<p>사이즈 :<%=map.get("BPIZZASIZE") %></p>
 
-									<p>엣지 :<%=map.get("edge") %></p>
+									<p>엣지 :<%=map.get("BPIZZAEDGE") %></p>
 								
 								
 							</td>
@@ -289,7 +289,7 @@ List<Map<String, Object>>maps=(List<Map<String, Object>>)request.getAttribute("m
 									
 								
 								<span class="ui-spinner ui-widget ui-widget-content ui-corner-all" style="height: 35px;">
-									<input class="cartSpinner ui-spinner-input" type="text" value="<%=map.get("count") %>" title="수량입력" style="width:46px;text-align:center;" readonly="" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1" autocomplete="off" role="spinbutton">
+									<input class="cartSpinner ui-spinner-input" type="text" value="<%=map.get("BCOUNT") %>" title="수량입력" style="width:46px;text-align:center;" readonly="" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1" autocomplete="off" role="spinbutton">
 										<a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only cartPlus" tabindex="-1" role="button" aria-disabled="false"><i class="icon icon-plus"></i></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only cartMinus" tabindex="-1" role="button" aria-disabled="false">
 										<i class="icon icon-minus"></i>
 										</a>

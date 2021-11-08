@@ -28,24 +28,9 @@ public class controller {
 	public String goBuket(HttpServletRequest request,HttpServletResponse response,Model model) {
 		logger.info("goBuket");
 		List<Map<String, Object>>maps=buketDao.findByEmail("kim@kim.com");
-		System.out.println(maps.toString());
-		/*Map<String, Object>map=new HashMap<String, Object>();
-		map.put("num", 1);
-		map.put("name", "불고기 피자");
-		map.put("count", 1);
-		map.put("price", 20000);
-		map.put("size", "L");
-		map.put("edge", "오리진");
-		Map<String, Object>map2=new HashMap<String, Object>();
-		map.put("num", 2);
-		map2.put("name", "치즈 피자");
-		map2.put("count", 2);
-		map2.put("price", 40000);
-		map2.put("size", "R");
-		map2.put("edge", "치즈");
-		List<Map<String, Object>>maps=new ArrayList<Map<String,Object>>();
-		maps.add(map);
-		maps.add(map2);*/
+		for(Map<String, Object>map:maps) {
+			map.put("price", 20000);
+		}
 		model.addAttribute("maps",maps);
 		return "/orderPages/buket";
 	}
